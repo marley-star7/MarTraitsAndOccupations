@@ -1,0 +1,2 @@
+Change innattentive sound to be based off trippable
+check lifestyle mod for ability to save liked foods

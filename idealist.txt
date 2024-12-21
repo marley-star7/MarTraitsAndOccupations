@@ -1,0 +1,453 @@
+-=- Proffesions: -=- 
+
+-- needs exclusive something --
+
+Dishwasher + 4
++2 Maintenance
+You clean items significantly faster 
+
+Corpse Familiar
+
+Grave digger + 4
++ 2 Long blunt
+You dig graves significantly faster
+You can fit more bodies in a grave
+Shovels last longer
+
+Vigilant
+- Foraging mode allows you to see the location sounds come from,
+- works multifloor
+
+Artist + 6
++ 1 maintenance
++ Artistic
+You are able to craft paintings
+
+TRAIT
+Junker
+Improvised weapons last longer and deal more damage
+Upon an improvised weapon breaking, it will deal multihit
+
+Artistic
+You are able to learn Carpentry, Cooking, Metalworking, and Tailoring 25% faster
+
+Hockey Player
++ 1 Fitness
++ 2 Long Blade
++ 2 Nimble
+Graceful
+
+Hunter
++ 1 Aiming
++ 1 Sneaking
++ 1 Trapping
+Hunter (Trait)
+
+Teacher
++ 2 Maintenance
++ 1 First Aid
+Fast Reader
+Motivational
+
+Coach - Maybe remove because a teacher is a sort of coach
++ 2 Fitness
++ 1 Nimble
+Motivational
+
+Bodyguard
++ 2 Strength
++ 2 Aiming
+You will shove zombies away much faster
+You are more likely to successfully shove a zombie away before a bite
+
+Surgeon
++ 4 First Aid
++ 2 Short Blade
++ 2 Sewer
+
+Priest
+Pacifist
+Motivational
+Miracle Worker - Tending wounds or sickness has a small chance to heal it completely - Excluding Zombification
+
+Stunt performer
+Born To Lose - 0
+Much less likely to get injured from dangerous stunts (falling, tripping, crashing cars, jumping through windows)
+
+-=- GOOD Traits: -=-
+
+Nudist -1
+When wearing no shirt and pant items you gain slight happiness
+
+Pyromaniac - 2
+Gain happiness and forget about other ailments when starting or near fire
+The closer/more the fire the more intense
+
+Thrifty/Frugal - 2
+When using resources you will consume much less
+"I only need a little bit"
+
+Vagabond - 2
+Find more food items in the garbage
+
+Heavy Kicker - 2
+"You always had a powerful kick."
+Your stomps are considerably more powerful.
+
+Gun Specalist
++ 2 Aiming
++ 2 Reloading
+
+Hoarder - 3
+Your mood is increased simply by being surrounded in items
+Mood is increased by looting
+Your mood is increased when close to carrying capacity
+Being low on carrying capacity causes sadness
+
+High Pain Tolerance - 3
+Experience less pain.
+
+Cruel - 4
+"You take great pleasure in inflicting pains"
+Gain happiness when attacking beings or setting traps
+25% Increase in Weapon skill learning speed
+
+Evasive
+33% chance to dodge any incoming attack.
+
+Motivational - 5 (Multiplayer Only)
+“You know how to power people with just your words alone.”
+Speaking in chat when around other players will help reduce their sadness
+Shouting when around other players will reduce their panic
+
+Observant - 5
+You find your self quick to notice things other do not.
+Can forage without crouching
+Find more items foraging
+When foraging all dropped items are highlighted
+
+Strong Back/Pack Mule - 6
+Maximum carrying capacity increased
+
+Unwavering - 7
+Your action speed is effected less when injured
+Your movement speed with fractured legs is increased
+
+Battering Ram - FROM ORIGINAL - 7
+"Nothing is going to get in your way."
+Can knock down zomboids by sprinting into them
+Can knock down doors by sprinting into them, potentially causing wounds but knocks back zombies behind it
+Ramming Doors/Zombies causes exertion, increasing exhaustion
+
+ADD THE BASE DOOR PHYSICS FROM BATTERING RAM AND FIX THE LOCK STUFF
+ALSO ADD THE CLUMSY AND GRACEFUL STUFF FOR IT ALONG WITH THE TRIP CHANCE
+
+Expert Driver - 7
+"You know your away around a vehicle"
+Faster Turning Speed driving
+Faster Braking Speed driving
+Vehicles make less noise driving
+
+Slugger - 8
+"You can swing, and you can swing hard."
++10% critical strike chance
+Your attacks with blunt weapons cause much more knockback
+When knocking an enemy down with a blunt weapon they will stay down for significantly longer
+
+Emotionally Numb - 9
+Experience no emotion at all.
+"I am simply not there."
+
+Second Wind - 12 - FROM ORIGINAL
+When there are 3 or more zombies near you and you are exhausted, regain full endurance and restore fatigue
+You have to sleep to regain second wind
++ 1 Fitness
+
+Careful - 6 - Conflicts with innatentive
+“You aren't one to let mistakes happen”
++2 Lightfooted
+climbing through windows with glass will not cut you
+Stepping on glass will not cut you or make noise
+You can remove glass without tweezers
+You make less noise when performing rushed actions
+
+Crackshot - 12
++ 3 Aiming
+Bullets more likely to pierce extra zombies (if this is possible)
+Increased range
+Faster Aiming Speed
+
+-=- BAD TRAITS -=-
+
+MAYBEE- Alcoholic (Lots of mods already do this one)
+Drinking Alcohol does not cause Fatigue
+Going without Alcohol for long periods causes stress and anxiety
+Prolonged Abstinence increases fatigue, head pain, and nausea
+Can lose the trait after a Month and a half of no alcohol
+
+Lactose Intolerant - 1
+Milk based products make you sick
+
+Fidgety + 1
+You constantly need something to hold
+become stressed when not holding an object in your hand
+
+Far Sighted + 1
+- 3 Foraging in search mode
+Reading is significantly slower
+Can be negated by wearing glasses(reading glasses if I can)
+
+Afraid of the Dark + 2
+Panic builds in the darks
+
+Wasteful/Lavish - 2
+When using resources you will consume much more
+"the type to never say 'when'"
+"more.. MORE!!"
+
+Afraid of Heights + 2
+Being on higher levels of elevation increases stress
+Being near edges skyrockets panic
+Your panic causes you to never land safely after a fall
+
+Cold Sensitive + 2
+Cold temperatures make you even colder
+
+Snorer + 2 (ONLY IF SLEEP NECESSARY IS ON)
+you will make loud snores when sleeping, potentially attracting zombies.
+
+Vegetable + 2
+Regardless of occupation, start the game in a hospital, doctors office, or ambulance
+You will spawn with a random set of injuries already bandaged
+You will always start with a fractured leg
+Easter egg
+When selecting vegetable and police officer at the same time you will always start in a hospital with a bullet lodged in your top left shoulder, a limp that takes 3 days to heal, and no other wounds.
+
+Forgetful + 3
+5% Chance to move transfer items to the wrong place
+Sometimes you will have to perform the same transferring action twice for no reason
+
+Hyperfixation + 3
+Gain hyperfixation on a random task
+Hyperfixation on a Task will last anywhere from 30 minutes to 2 hours
+When hyperfixated on a Task, you will gain happiness from doing that task, and perform it slightly faster
+You will quickly gain boredom when not performing the task
+
+Smelly + 3
+"Something stinks.. Oh, It's you."
+Zombies follow you for longer periods of time
+If in a group zombies are more likely to target you
+Can be negated by periodically taking a bath
+Visual Flies will gather around if you stay somewhere too long
+
+Allergic + 3
+Sneeze occasionally, making noise, allerting zombies
+Less likely to sneeze if inside
+Sneeze more often when moving through foliage
+Sneeze more often depending on wind
+Sneeze chance depends on month it is
+can muffle sneeze with tissue
+
+Panic Attacks + 3
+Occasionally get a panic attack
+Panic attacks might wake you up in the middle of the night
+
+Extrovert + 4 (Multiplayer Only)
+Icon is one guy talking in a crowd
+“Sometimes the presence of others is just what you need.”
+When in far proximity of other players you will progressively become sad and anxious, methods of remedying sadness are much less effective until you find interaction again
+
+Introvert + 4 ( Multiplayer Only)
+Icon is a crowd with one guy standing in a corner alone
+“Sometimes you just need some time to yourself.”
+When In close proximity of other players you slowly become anxious and sad, methods of remedying sadness are much less effective when near others
+
+Heat Sensitive + 4
+Hot temperatures makes you even hotter
+
+Objectophilia + 4
+You will randomly become fixated with a random object
+The object will be highlighted in pink
+Holding the object in your hand increases mood
+When the object is not in your inventory it will cause immense sadness
+The sadness will progressively decrease
+Going without the object for 3 days you will no longer become fixated in it
+You will eventually become fixated with another object
+
+Sensitive Digestion + 4
+Become sick from eating foods easier
+
+Tunnel Vision + 4
+Thinner vision arc
+
+Picky Eater + 4
+Others could never predict what you like
+A random selection of foods are assigned to your character to cause unhappiness when eaten
+Eating the same food too many times causes unhappiness
+
+Fearful + 4
+As your characters panic builds you will go all the way from whimpering to screaming for help
+When Jumpscared your character will Scream in fear and become panicked
+If holding a gun when jumpscared you will fire wildly
+
+Vegatarian + 4
+Eating meat based foods causes depression
+
+Asthmatic + 5
+Become exhausted much faster
+Can be negated with an inhaler.
+
+Low Pain Tolerance - 5
+The effects of pain are more strong.
+
+Depressive - 6
+May randomly become sad for no reason
+Harder to recover from sadness
+
+Weak Back/Pack Mouse + 6
+Less Total Carrying capacity
+
+Hopeless Romantic + 6
+You will become attached to the person you have spent the most time around
+You will gain happiness whenever around them
+You will lose happiness when not around them
+
+Knee Problems + 6
+- 1 Sneaking
+- 2 Sprinting
+Feel pain in your leg's whenever it is about to rain/snow
+Feel pain in your leg's when carrying too much
+Feel pain in your leg's when sprinting too much
+
+Injured + 6
+Start the game with random injuries.
+
+-- WORKS WITH FEARFUL YOUR GUY WILL TURN INTO A SAILOR
+Anger Issues + 6
+"You always had problems controlling your anger"
+You will become angry after breaking something, crashing into an object with your car, jamming your gun, or becoming injured
+You are more prone to becoming angry when drunk
+Lose anger by destroying things, fighting, abstaining from anything that makes you mad for awhile, or doing things that make you happy
+When angry you will break items faster.
+When angry you are more likely to: accidentally break locks, break furniture, get less useful materials from carpentry, Jam guns
+
+Bad Aim + 7
+“even the easiest shots seem a struggle for you”
+-2 Aiming
+You will not always fully kill zombies, and they may come back later
+
+Student Driver - 7
+"You don't much how to drive, if at all"
+Slower Turning Speed driving
+Slower Braking Speed driving
+Vehicles make much more noise driving
+
+Pyrophobia - SORT OF FROM ORIGINAL + 7
+"You have an immense fear of fire"
+Fire causes panic and anxiety
+The closer/more the fire the more intense
+Unable to start any kinds of fire (Molotov's, fire bombs, campfires)
+
+Obsessive Compulsive Disorder + 7
+“You have an uncontrollable urge for tidyness”
+You will automatically close all doors when walking away from them
+Your character will automatically close windows behind them
+You will automatically flip off switches if in proximity when leaving a room
+You become stressed when your clothes have holes in them
+You gain stress when in a room where all of the windows are either not all closed or open
+You gain gain stress when in a room with open doors
+
+Vegan + 8
+Eating animal based foods causes depression
+
+Pampered + 9
+"You never had to do anything for yourself."
+Performining work builds sadness
+Cooking builds sadness
+Eating 'depressing' food causes much more sadness
+Drinking water that isn't from a sink or water cooler gives sadness (lessened once the water is cut off)
+When the electricity and water are cut off, your character will have a very large spout of despair and physically feel sick (queasy)
+
+Empathatic + 9 (Multiplayer Only)
+"You truly feel what other people are going through"
+Regardless of Traits, You will share the strongest moodle between the people around you and only lose the moodle when they do.
+Negative Moodles are more Strong than Positive ones
+You will not share Injury Moodles
+If near another Empath you will share the moodle of the person they are empathizing for
+-=- It'll work in this order
+Tier 4 Pain
+Tier 4 Depression
+Tier 4 Panic
+and that down
+-=-
+
+Germaphobe + 9
+"You are obssesed with cleanliness"
+You become stressed when your clothes are too dirty
+You become stressed when washing your clothes without soap
+Using non sterilized bandages causes stress
+Performing actions without gloves causes stress
+Tripping causes nausea
+Corpse sickness causes stress 
+
+Butterfingers + 9
+You have a chance to drop items when transferring them
+Always drop weapon when tripping
+Missed attacks have a chance to drop your weapon
+You have a chance to drop bandages when trying to heal
+You have a chance when tending wounds to make them worse
+Scratch -> Laceration 25%
+Laceration -> Deep Wound 10%
+Deep wound -> Fracture 5%
+You have a chance to cut your face when shaving
+You will drop furniture more often
+
+Innattentive + 10
+You can trip on corpses, rugs, items, and stairs
+
+Cursed + 14
+“Unfortunate events happen so often, it almost seems purposeful”
+Alarm clocks have a chance of randomly going off when going near them for the first time
+Houses you enter for the first time have a chance to have the oven on
+Houses you enter are much more likely to have alarms
+Attempting to open windows has a chance to instantly shatter them
+Closed doors around you have a chance to randomly open 
+
+Blind + 20
+Blind trait but extended
+
+Electromagnetic Sensitivity + 15
+Being near electricity causes pain
+Pain increases with proximity to electricity
+Interacting directly with electric objects causes immense pain
+
+
+-- Abandonded IDEAS
+Criminal
++ 2 Aiming
++ 1 Sneaking
++ 1 Short blade
+Cruel
+
+Football Player
++ 2 Sprinting
++ 2 Strength
++ 2 Fitness
+Battering Ram
+- Bumping into people takes less stamina and has a much lower chance to trip.
+
+Soccer Player
++ 2 Sprinting
++ 2 Fitness
++ 1 Nimble
+Heavy Kicker
+
+Baseball Player
++ 1 Fitness
++ 2 Long Blunt
++ 2 Sprinting
+Bat Man
+
+
+Sunflower - 2
+Panic is reduced and mood is increased when your character is in natural light

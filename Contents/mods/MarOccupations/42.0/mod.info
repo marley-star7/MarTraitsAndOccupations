@@ -1,0 +1,8 @@
+name=Mar Occupations
+id=MarOccupations
+poster=poster.png
+icon=icon.png
+author=marley_star7
+modversion=42.0.0
+description=Adds the new occupations to accompany the main mod!
+require=3132520376\MarLibrary, 3139034529\MarTraits

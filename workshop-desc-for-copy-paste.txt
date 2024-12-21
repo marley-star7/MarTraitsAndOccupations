@@ -1,0 +1,70 @@
+[h1]30+ New Traits[/h1]
+[h2]8 New Occupations[/h2]
+
+All of the traits/occupations in this mod were made to resemble vanilla both balance and style as closely as possible!
+Some highlights:
+Innattentive: if you wanted your character to potentially trip on a curb or a the garbage on the floor and scratch yourself?
+Battering Ram: Sprint full speed knocking down zombies or just bust through those pesky doors taking the zombies down with you.
+Allergic: Feel the pain of spring and summers pollen, and zomboid forbid you decide to walk through some trees.
+
+[h3][b][i][u]DON'T FORGET TO DOWNLOAD AND ENABLE "MAR LIBRARY"[/u][/i][/b][/h3]
+It literally houses the functions that make the traits and the mod will not work without it
+[i]I'm quite concerned with the ratio between having this mod installed and the mar library, how are you people even running the mod?[/i]
+[h3]Moodle Framework is not "REQUIRED" to work, and but helps more communicate to players using the allergic trait, and very cool and recommended yes.[/h3]
+
+[h3]I do plan on coming back and porting this mod to build 42 when the time comes, as well as hopefully fixing it up a tad[/h3]
+
+[h3]Known Issues[/h3]
+- Characters using battering ram in multiplayer will appear to trip when running in crowds to other players despite not tripping.
+- Fearful characters will not appear to say anything to other players on servers.
+- Pressing the sprint button in the menu causes errors to repeatedly occur, it does not appear to effect normal gameplay and has been a persistent bug for awhile so for now enjoy the on demand error button.
+- Battering Ram with sprinters is inconsistent due to the awful nature of sprinters slowing you down when they try and bite you.
+
+[h1][u]Incompatibilities[/u][/h1]
+ - [b][u]"More Traits"[/u][/b]
+[i]this mod shares many of those same traits they are likely to conflict.[/i]
+
+ - [b][u]"SOTO Simple Overhaul" Traits and Occupations"[/u][/b]
+If you wish to use these mods together, there is a patch by Teeny that simply disables the overlapping traits from this mod to allow it to be used alongside SOTO which can be found here: https://steamcommunity.com/sharedfiles/filedetails/?id=3209725071
+
+[h3]----------------------------------------------------------------------[/h3]
+
+[h3]Thanks![/h3]
+[b][u]Starwhip for helping with the mod![/u][/b]
+
+[b][u]Many of this mod's traits were directly inspired by the "More Traits" mod.[/u][/b]
+While this mode uses original code and art, and many of the traits work different functionally. I expressively asked for permission from the More Traits creator (HypnoToadTrance) to quell my own worries of even stealing "ideas" and to keep many of the names and similar icons to honor the original.
+This mod actually originally started as just my attempt at remaking some of the icons in that mod, but spiraled way out of control into it's own separate entire thing. so thanks More Traits!
+
+[b][u]And admittedly some parts "Inspired" by SOTO: Simple Overhaul Traits and Occupations.[/u][/b]
+So credit is due to the second mod this is built off of and to I believe the sole creator of that mod "Hea"
+I didn't have permission then but I believe I do now.
+
+[h1]Suggestions and Feedback are Welcome![/h1]
+If anyone, ANYONE finds a bug/performance issue (fellow modder's included) and especially a fix for said issue, please let me know and I will gladly implement it (as long as the fix is a fix)
+
+[h3]Discord[/h3]
+https://discord.gg/KAfeqcjjeg
+[i]if people want to discuss, bug report, or help further through an easier output than a steam comment section lol[/i]
+
+[img]https://i.imgur.com/HPwtdHu.gif[/img]
+
+[h3]Immersive Blind Trait[/h3]
+https://steamcommunity.com/sharedfiles/filedetails/?id=3121062639
+[i]originally made for this mod, but as I felt it branched too far from this mod and to allow the people to have the preference it was given it's own mod you can see here[/i]
+
+[h3][b][i][u]Someone please tell me how to make the workshop thumbnail a gif lol[/u][/i][/b][/h3]
+
+[b][i]Permissions basically entirely open, just credit somewhere please and I don't care what you do.[/i][/b]
+
+Workshop ID: 3139034529
+Mod ID: MarOccupations
+Mod ID: MarTraits
+
+Workshop ID: 3139034529
+Mod ID: MarOccupations
+Mod ID: MarTraits
+
+Workshop ID: 3139034529
+Mod ID: MarOccupations
+Mod ID: MarTraits

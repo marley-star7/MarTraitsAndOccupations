@@ -1,0 +1,46 @@
+VERSION = 1,
+
+option MarTraits.ThickBloodedBleedLessModifier
+{
+	type = integer, min = 1, max = 100, default = 10,
+	page = MarTraits, translation = MarTraits_ThickBloodedBleedLessModifier,
+}
+option MarTraits.ThinBloodedBleedMoreModifier
+{
+	type = integer, min = 100, max = 1000, default = 250,
+	page = MarTraits, translation = MarTraits_ThinBloodedBleedMoreModifier,
+}
+option MarTraits.PackMuleCarryWeightBonus
+{
+	type = integer, min = 0, max = 20, default = 2,
+	page = MarTraits, translation = MarTraits_PackMuleCarryWeightBonus,
+}
+option MarTraits.PackMouseCarryWeightPenalty
+{
+	type = integer, min = -20, max = 0, default = -2,
+	page = MarTraits, translation = MarTraits_PackMouseCarryWeightPenalty,
+}
+option MarTraits.LitheTurnSpeed
+{
+	type = integer, min = 100, max = 200, default = 125,
+	page = MarTraits, translation = MarTraits_LitheTurnSpeed,
+}
+option MarTraits.LumberingTurnSpeed
+{
+	type = integer, min = 0, max = 100, default = 60,
+	page = MarTraits, translation = MarTraits_LumberingTurnSpeed,
+}
+
+--======================--
+-- BALANCE TRAITS STUFF --
+--======================--
+
+option BalanceTraits.Alchoholic
+{
+    type = integer,
+    min = -40,
+    max = 40,
+    default = 7,
+    page = BalanceTraits,
+    translation = BalanceTraits_Alchoholic,
+}

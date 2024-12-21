@@ -1,0 +1,13 @@
+this mod was inspired by two other mods I personally used in my playthroughs of Zomboid.
+
+- "More Traits" https://steamcommunity.com/sharedfiles/filedetails/?id=1299328280&searchtext=more+traits
+This mod's open source on github helped me immensly in making my own project, and as a coder does, parts of this code are probably ripped straight out of there when in a state of distraught
+A couple Traits of my favorite traits as well made their way from their mod into this one.
+I redid some of the code for these, gave them new icons, and changed a couple of their names to better suit the style of this mod.
+Full Thank you's to everyone who worked on that mod otherwise this one would not have been possible or even thought of.
+
+- "Simple Overhaul: Traits and Occupations" https://steamcommunity.com/sharedfiles/filedetails/?id=2840805724&searchtext=simple+overhaul
+A couple occupation ideas, and a single trait has been inspired from this mod.
+They are closed permissions sadly, but all of my code and artwork is entirely original, and almost all traits/occupations inspired work different functionally.
+
+It was partly the lack of compatability between these two mods, but mainly my wish to make my own that pushed me to create this.
