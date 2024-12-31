@@ -1,35 +1,212 @@
 VERSION = 1,
 
-option MarTraits.ThickBloodedBleedLessModifier
+option MarTraits.MinorLimpFractureStrength
 {
-	type = integer, min = 1, max = 100, default = 5,
-	page = MarTraits, translation = MarTraits_ThickBloodedBleedLessModifier,
+	type = integer, 
+	min = 0, 
+	max = 100, 
+	default = 10,
+	page = MarTraits, 
+	translation = MarTraits_MinorLimpFractureStrength,
 }
+option MarTraits.MajorLimpFractureStrength
+{
+	type = integer, 
+	min = 0, 
+	max = 100, 
+	default = 20,
+	page = MarTraits, 
+	translation = MarTraits_MajorLimpFractureStrength,
+}
+option MarTraits.MinorLimpHealLimitIncreasePerSplintFactor
+{
+	type = integer, 
+	min = 0, 
+	max = 30, 
+	default = 4,
+	page = MarTraits, 
+	translation = MarTraits_MinorLimpHealLimitIncreasePerSplintFactor,
+}
+option MarTraits.MajorLimpHealLimitIncreasePerSplintFactor
+{
+	type = integer, 
+	min = 0, 
+	max = 30, 
+	default = 12,
+	page = MarTraits, 
+	translation = MarTraits_MajorLimpHealLimitIncreasePerSplintFactor,
+}
+option MarTraits.MinorLimpNoInjuryDamageLossReduction
+{
+	type = integer, 
+	min = 0, 
+	max = 75, 
+	default = 75,
+	page = MarTraits, 
+	translation = MarTraits_MinorLimpNoInjuryDamageLossReduction,
+}
+option MarTraits.MajorLimpNoInjuryDamageLossReduction
+{
+	type = integer, 
+	min = 0, 
+	max = 75, 
+	default = 50,
+	page = MarTraits, 
+	translation = MarTraits_MajorLimpNoInjuryDamageLossReduction,
+}
+option MarTraits.LimpTraitsStartingSplintStrength
+{
+	type = integer, 
+	min = 0, 
+	max = 55, 
+	default = 15,
+	page = MarTraits, 
+	translation = MarTraits_LimpTraitsStartingSplintStrength,
+}
+option MarTraits.LimpTraitsHealLimitReturnSpeed
+{
+	type = integer, 
+	min = 0, 
+	max = 1000, 
+	default = 5,
+	page = MarTraits, 
+	translation = MarTraits_LimpTraitsHealLimitReturnSpeed,
+}
+option MarTraits.MajorLimpRightLeg
+{
+	type = boolean,  
+	default = true,
+	page = MarTraits, 
+	translation = MarTraits_MajorLimpRightLeg,
+}
+option MarTraits.MinorLimpRightLeg
+{
+	type = boolean,  
+	default = true,
+	page = MarTraits, 
+	translation = MarTraits_MinorLimpRightLeg,
+}
+
+option MarTraits.BrokeLegRightLeg
+{
+	type = boolean,  
+	default = true,
+	page = MarTraits, 
+	translation = MarTraits_BrokeLegRightLeg,
+}
+option MarTraits.BrokeLegFractureTime
+{
+	type = integer, 
+	min = 0, 
+	max = 1000, 
+	default = 70,
+	page = MarTraits, 
+	translation = MarTraits_BrokeLegFractureTime,
+}
+
+
 option MarTraits.ThinBloodedBleedMoreModifier
 {
-	type = integer, min = 100, max = 1000, default = 200,
-	page = MarTraits, translation = MarTraits_ThinBloodedBleedMoreModifier,
+	type = integer, 
+	min = 1, 
+	max = 1000, 
+	default = 40,
+	page = MarTraits, 
+	translation = MarTraits_ThinBloodedBleedMoreModifier,
 }
-option MarTraits.PackMuleCarryWeightBonus
+option MarTraits.ThickBloodedBleedLessModifier
 {
-	type = integer, min = 0, max = 20, default = 2,
-	page = MarTraits, translation = MarTraits_PackMuleCarryWeightBonus,
+	type = integer, 
+	min = 1, 
+	max = 1000, 
+	default = 30,
+	page = MarTraits, 
+	translation = MarTraits_ThickBloodedBleedLessModifier,
 }
-option MarTraits.PackMouseCarryWeightPenalty
+
+
+option MarTraits.StrongBackCarryWeightBonus
 {
-	type = integer, min = -20, max = 0, default = -2,
-	page = MarTraits, translation = MarTraits_PackMouseCarryWeightPenalty,
+	type = integer, 
+	min = 0, 
+	max = 20, 
+	default = 1,
+	page = MarTraits, 
+	translation = MarTraits_StrongBackCarryWeightBonus,
 }
-option MarTraits.LitheTurnSpeed
+option MarTraits.WeakBackCarryWeightPenalty
 {
-	type = integer, min = 100, max = 200, default = 125,
-	page = MarTraits, translation = MarTraits_LitheTurnSpeed,
+	type = integer, 
+	min = -20,
+	max = 0, 
+	default = -1,
+	page = MarTraits, 
+	translation = MarTraits_WeakBackCarryWeightPenalty,
 }
-option MarTraits.LumberingTurnSpeed
+
+
+option MarTraits.LitheTurnSpeedPercentIncrease
 {
-	type = integer, min = 0, max = 100, default = 60,
-	page = MarTraits, translation = MarTraits_LumberingTurnSpeed,
+	type = integer, 
+	min = 0, 
+	max = 100, 
+	default = 25,
+	page = MarTraits, 
+	translation = MarTraits_LitheTurnSpeedPercentIncrease,
 }
+option MarTraits.LitheXPModifier
+{
+	type = integer, 
+	min = 0, 
+	max = 100, 
+	default = 25,
+	page = MarTraits, 
+	translation = MarTraits_LitheXPModifier,
+}
+option MarTraits.LumberingTurnSpeedPercentDecrease
+{
+	type = integer, 
+	min = 0, 
+	max = 100, 
+	default = 25,
+	page = MarTraits, 
+	translation = MarTraits_LumberingTurnSpeedPercentDecrease,
+}
+option MarTraits.LumberingXPModifier
+{
+	type = integer, 
+	min = 0, 
+	max = 100, 
+	default = 25,
+	page = MarTraits, 
+	translation = MarTraits_LumberingXPModifier,
+}
+option MarTraits.LitheLumberingAreDynamic
+{
+	type = boolean, 
+	default = false,
+	page = MarTraits, 
+	translation = MarTraits_LitheLumberingAreDynamic,
+}
+option MarTraits.LitheGainLevel
+{
+	type = integer, 
+	min = 0, 
+	max = 10, 
+	default = 7,
+	page = MarTraits, 
+	translation = MarTraits_LitheGainLevel,
+}
+option MarTraits.LumberingLoseLevel
+{
+	type = integer, 
+	min = 0, 
+	max = 10, 
+	default = 3,
+	page = MarTraits, 
+	translation = MarTraits_LumberingLoseLevel,
+}
+
 
 --======================--
 -- BALANCE TRAITS STUFF --

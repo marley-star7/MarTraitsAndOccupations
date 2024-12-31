@@ -5,7 +5,6 @@ function BodyDamage:JustDrankBooze(food, percentage)
     print(percentage)
 end
 
---[[
 local _MapItemLoadWorldMap = MapItem.LoadWorldMap
 function MapItem:LoadWorldMap()
     if getPlayer:HasTrait("blind") then return end

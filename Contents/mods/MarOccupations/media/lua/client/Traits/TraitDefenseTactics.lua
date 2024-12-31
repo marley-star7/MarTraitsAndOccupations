@@ -1,4 +1,3 @@
---[[
 MarOccupations = MarOccupations or {}
 MarOccupations.defenseTacticsActivate = function(player)
     if not player:HasTrait("DefenseTactics") then return end
@@ -8,4 +7,3 @@ MarOccupations.defenseTacticsActivate = function(player)
 end
 
 Events.OnPlayerGetDamage.Add(MarOccupations.defenseTacticsActivate)
-]]--

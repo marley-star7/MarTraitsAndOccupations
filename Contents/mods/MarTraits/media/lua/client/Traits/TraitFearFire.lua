@@ -93,7 +93,6 @@ end
 --== WARNING WAS VERRRRYYY LAGGY ==--
 -- Checks in a 3x3 grid around the player if there is no floor.
 -- I'm sorry this looks ugly but did you know Lua has NO CONTINUE FOR LOOPS???
---[[
 for y = -distance, distance, 1 do
     for x = -distance, distance, 1 do
         if x ~= y then

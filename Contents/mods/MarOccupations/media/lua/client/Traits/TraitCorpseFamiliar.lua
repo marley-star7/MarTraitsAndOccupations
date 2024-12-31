@@ -7,7 +7,6 @@ function MarOccupations.CorpseFamiliarUpdate(player)
     if not player:HasTrait("CorpseFamiliar") then return end
 
     local bodyDamage = player:getBodyDamage()
-    -- TODO TAKE THIS FOR THE FUCKING THING FOR THE FUCKING TEMPERATURE TRAITS YES
 	if prevSicknessLevel < 0.0 then --get initial value
 		prevSicknessLevel = bodyDamage:getFoodSicknessLevel()
 	end

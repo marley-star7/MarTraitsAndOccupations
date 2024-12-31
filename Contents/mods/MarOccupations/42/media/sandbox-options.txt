@@ -1,0 +1,11 @@
+VERSION = 1,
+
+option MarOccupations.CorpseFamiliarCorpseSicknessReduction
+{
+	type = integer, 
+	min = 0, 
+	max = 25, 
+	default = 5,
+	page = MarOccupations, 
+	translation = MarTraits_CorpseFamiliarCorpseSicknessReduction,
+}

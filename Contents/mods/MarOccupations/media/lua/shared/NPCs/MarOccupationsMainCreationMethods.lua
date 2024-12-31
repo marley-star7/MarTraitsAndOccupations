@@ -1,13 +1,8 @@
 --require("ProfessionFramework")
-require("MarLibrary")
+require("MarLibraryTimedActionSpeedModifier.lua")
 require("TimedActionSpeedModifier")
 
 MarOccupations = MarOccupations or {}
-
-local function addProfessionTraitCopy(name)
-	local nameOrig = string.gsub(name, "2", "")
-	return TraitFactory.addTrait(name, getText("UI_trait_" .. nameOrig), 0, getText("UI_trait_" .. nameOrig .. "Desc"), true)
-end
 
 local function addProfession(name, cost)
 	local prof = ProfessionFactory.addProfession(name, getText("UI_prof_" .. name), getText("icon_prof_" .. name), cost)
@@ -16,7 +11,7 @@ end
 
 local function addMarProfessionTraits()
 	-- Copy Traits
-	local traitBatteringRam2 = addProfessionTraitCopy("BatteringRam2")
+	local traitBatteringRam2 = MarLibrary.addProfessionTraitCopy("BatteringRam2")
 	TraitFactory.setMutualExclusive("BatteringRam2", "BatteringRam")
 
 	local traitDexterous2 = TraitFactory.addTrait("Dextrous2", getText("UI_trait_Dexterous"), 0, getText("UI_trait_DexterousDesc"), true)
@@ -35,14 +30,14 @@ local function addMarProfessionTraits()
 	TraitFactory.setMutualExclusive("Tailor2", "Tailor")
 	-- Occupation Specific Traits
 	local traitDemoman = MarLibrary.addProfessionTrait("Demoman")
-	MarTraits.TraitSpecificTimedActionSpeedListAdd(
+	MarLibrary.TraitSpecificTimedActionSpeedListAdd(
 		"Demoman", 
 		{	
 		{"ISDestroyStuffAction", 2},
 	    {"ISMoveablesAction", 1}, 
 		})
 	local traitRushHour = MarLibrary.addProfessionTrait("RushHour")
-	MarTraits.TraitSpecificTimedActionSpeedListAdd(
+	MarLibrary.TraitSpecificTimedActionSpeedListAdd(
 		"RushHour", 
 		{
 			{"ISOpenVehicleDoor", 2},
@@ -53,7 +48,7 @@ local function addMarProfessionTraits()
 	local traitButcher = MarLibrary.addProfessionTrait("Butcher")
 	local traitCorpseFamiliar = MarLibrary.addProfessionTrait("CorpseFamiliar")
 	local traitCleaner = MarLibrary.addProfessionTrait("Cleaner")
-	MarTraits.TraitSpecificTimedActionSpeedListAdd(
+	MarLibrary.TraitSpecificTimedActionSpeedListAdd(
 		"Cleaner", 
 		{	
 			{"ISCleanBlood", 1.75},
@@ -95,20 +90,24 @@ local function addMarProfessions()
 	profTailor:addXPBoost(Perks.Tailoring, 3)
 	profTailor:addFreeTrait("Tailor2")
 
-	local profAthlete = addProfession("athlete", -14)
-	profAthlete:addXPBoost(Perks.Fitness, 3)
-	profAthlete:addXPBoost(Perks.Nimble, 1)
-	profAthlete:addXPBoost(Perks.Sprinting, 2)
-	profAthlete:addXPBoost(Perks.Strength, 1)
+	if isDebugEnabled() then
+		local profAthlete = addProfession("athlete", -14)
+		profAthlete:addXPBoost(Perks.Fitness, 3)
+		profAthlete:addXPBoost(Perks.Nimble, 1)
+		profAthlete:addXPBoost(Perks.Sprinting, 2)
+		profAthlete:addXPBoost(Perks.Strength, 1)
+	end
 
 	local profWaiter = addProfession("waiter", 2)
 	profWaiter:addXPBoost(Perks.Nimble, 2)
 	profWaiter:addFreeTrait("Graceful2")
 	profWaiter:addFreeTrait("Dextrous2")
 
-	local profDeliveryDriver = addProfession("deliverydriver", 7)
-	profDeliveryDriver:addFreeTrait("SpeedDemon2")
-	profDeliveryDriver:addFreeTrait("RushHour")
+	if isDebugEnabled() then
+		local profDeliveryDriver = addProfession("deliverydriver", 7)
+		profDeliveryDriver:addFreeTrait("SpeedDemon2")
+		profDeliveryDriver:addFreeTrait("RushHour")
+	end
 
 	local profButcher = addProfession("butcher", -4)
 	profButcher:addXPBoost(Perks.SmallBlade, 2)
