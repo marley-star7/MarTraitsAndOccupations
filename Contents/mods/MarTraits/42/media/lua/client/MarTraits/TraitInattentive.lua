@@ -241,7 +241,7 @@ local function inattentiveUpdate(_player, playerSquare)
 
     local squaresTillCanTrip = playerModData.fMarTraitsSquaresTillCanTrip or 0
     if squaresTillCanTrip > 0 then
-        print(squaresTillCanTrip) 
+        --print(squaresTillCanTrip) 
         local cooldownModifier = 1 
 
         -- Trip more often when panicking

@@ -15,7 +15,13 @@ local function addMarOccupationsTraits()
 			{"ISMoveablesAction", 1},
 		}
 	)
-	
+	local traitPickaxeMan = MarLibrary.Traits.addTrait("Mar_PickaxeMan")
+	MarLibrary.Traits.addTraitTimedActionSpeedModifierList(
+		"Mar_PickaxeMan", 
+		{	
+			{"ISPickAxeGroundCoverItem", 1.5},
+		}
+	)
 	local traitRushHour = MarLibrary.Traits.addTrait("Mar_RushHour")
 	MarLibrary.Traits.addTraitTimedActionSpeedModifierList(
 		"Mar_RushHour", 
@@ -61,11 +67,12 @@ local function addMarOccupationsProfessions()
 	profFederalOfficer:addXPBoost(Perks.Fitness, 1)
 	profFederalOfficer:addXPBoost(Perks.Nimble, 1)
 	profFederalOfficer:addFreeTrait(MarLibrary.Traits.addTraitCopy("Brave", 0, "brave", "bravedesc"))
-	profFederalOfficer:addFreeTrait("Mar_DefenseTactics")
+	--profFederalOfficer:addFreeTrait("Mar_DefenseTactics")
 	
 	local profPrivateInvestigator = MarLibrary.Traits.addProfession("mar_privateinvestigator", -2)
 	profPrivateInvestigator:addXPBoost(Perks.Tracking, 3)
 	profPrivateInvestigator:addXPBoost(Perks.Sneak, 2)
+	profPrivateInvestigator:addXPBoost(Perks.Lightfoot, 1)
 	profPrivateInvestigator:addFreeTrait(MarLibrary.Traits.addTraitCopy("Inconspicuous"))
 
 	local profDemolitionWorker = MarLibrary.Traits.addProfession("mar_demolitionworker", 0)
@@ -76,6 +83,7 @@ local function addMarOccupationsProfessions()
 	local profMiner = MarLibrary.Traits.addProfession("mar_miner", 2)
 	profMiner:addXPBoost(Perks.Axe, 2)
 	profMiner:addXPBoost(Perks.FlintKnapping, 1)
+	profMiner:addFreeTrait("Mar_PickaxeMan")
 
 	local profTailor = MarLibrary.Traits.addProfession("mar_tailor", 2)
 	profTailor:addXPBoost(Perks.Tailoring, 3)

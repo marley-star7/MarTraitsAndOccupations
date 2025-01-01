@@ -46,6 +46,10 @@ local function addMarTraitsTraits()
 	traitGunKnowledge:addXPBoost(Perks.Aiming, 1)
 	traitGunKnowledge:addXPBoost(Perks.Reloading, 1)
 
+	-- VOLUME TRAITS --
+	local traitQuiet = MarLibrary.Traits.addTrait("Mar_Quiet", 3)
+	traitQuiet:addXPBoost(Perks.Sneak, 1)
+
 	-- FEAR TRAITS --
 	local traitFearful = MarLibrary.Traits.addTrait("Mar_Fearful", -4)
 	local traitNyctophobic = MarLibrary.Traits.addTrait("Mar_Nyctophobic", -2)
@@ -57,7 +61,7 @@ local function addMarTraitsTraits()
 	-- LIMP TRAITS --
 	local traitMinorLimp = MarLibrary.Traits.addTrait("Mar_MinorLimp", -12)
 	local traitMajorLimp = MarLibrary.Traits.addTrait("Mar_MajorLimp", -24)
-	local traitBrokeLeg = MarLibrary.Traits.addTrait("Mar_BrokeLeg", -1)
+	-- local traitBrokeLeg = MarLibrary.Traits.addTrait("Mar_BrokeLeg", -1) -- Disabled for not fitting into zomboids new style of traits.
 	-- XP TRAITS --
 	local traitWarMonger = MarLibrary.Traits.addTrait("Mar_WarMonger", 4)
 	local traitArtist = MarLibrary.Traits.addTrait("Mar_Artist", 2)
@@ -76,9 +80,10 @@ local function addMarTraitsTraits()
 	-- COPY TRAITS --
 	local traitDesentiziedCopy = MarLibrary.Traits.addTraitCopy("Desensitized", 12)
 	-- MISC TRAITS
+
 	local traitNoEmotion = MarLibrary.Traits.addTrait("Mar_NoEmotion", 16)
 	local traitDepressive = MarLibrary.Traits.addTrait("Mar_Depressive", -2)
-	local traitAlcoholic = MarLibrary.Traits.addTrait("Mar_Alcoholic", -2)
+	--local traitAlcoholic = MarLibrary.Traits.addTrait("Mar_Alcoholic", -2)
 	local traitInattentive = MarLibrary.Traits.addTrait("Mar_Inattentive", -8)
 
 	local workerTimedActionNoSpeedList = {
@@ -103,8 +108,10 @@ local function addMarTraitsTraits()
 	TraitFactory.setMutualExclusive("Mar_Lithe", "Mar_Lumbering")
 	TraitFactory.setMutualExclusive("Mar_WarMonger", "Pacifist")
 	TraitFactory.setMutualExclusive("Mar_MinorLimp", "Mar_MajorLimp")
-	TraitFactory.setMutualExclusive("Mar_BrokeLeg", "Mar_MinorLimp")
-	TraitFactory.setMutualExclusive("Mar_BrokeLeg", "Mar_MajorLimp")
+	if TraitFactory.getTrait("Mar_BrokeLeg") then
+		TraitFactory.setMutualExclusive("Mar_BrokeLeg", "Mar_MinorLimp")
+		TraitFactory.setMutualExclusive("Mar_BrokeLeg", "Mar_MajorLimp")
+	end
 	TraitFactory.setMutualExclusive("Mar_KeenDriver", "Mar_PoorDriver")
 	TraitFactory.setMutualExclusive("Mar_FastWorker", "Mar_SlowWorker")
 	TraitFactory.setMutualExclusive("Mar_Fearful", "Brave")

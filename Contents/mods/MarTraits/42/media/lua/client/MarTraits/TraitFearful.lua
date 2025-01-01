@@ -3,8 +3,9 @@ require("MarLibrary")
 local minKillsTillRemoved = 100
 local maxKillsTillRemoved = 200
 local noiseChance = 0 -- TODO: make this a mod saved thing.
-local baseNoiseChanceSettleSpeed = 3
-local baseNoiseChanceRiseSpeed = 0.3
+local baseNoiseChanceSettleSpeed = 2
+local sneakingNoiseChanceSettleSpeedModifier = 2
+local baseNoiseChanceRiseSpeed = 0.12
 
 local panicNoiseChanceRiseModifier = 1
 local visibleZombiesSpikeNoiseChanceModifier = 8
@@ -84,6 +85,7 @@ end
 	-- "FemaleHeavyBreath"
 	-- "FemaleHeavyBreathPanic"
 
+-- TODO: figure out how to make heavy breathing panting sounds like low endurance does.
 local function fearfulUpdate(player)
 	if not player:HasTrait("Mar_Fearful") then return end
 
@@ -117,73 +119,74 @@ local function fearfulUpdate(player)
 	local panic = stats:getPanic()
 
 	local delta = getGameTime():getTimeDelta() -- So it doesn't change with frame rate.
-	-- Panic is 0 to 100, 
-	--print(noiseChance)
-	-- TODO: make it go up or go down based off same values, instead of panic, so then you can manage it and no longer will you randomly yelp
-	if panic < 1 or player:isSneaking() then
-		-- Slowly move noise chance to zero.
-		noiseChance = PZMath.lerp(noiseChance, 0, baseNoiseChanceSettleSpeed * delta)
-	else
-		-- TODO: make the panic thing instead whenever there is a panic jump, instead  of steady rise with panic, and just make it so that you pant panicking.
-		local panicNoiseChanceInfluence = baseNoiseChanceRiseSpeed * (panic / 100) * panicNoiseChanceRiseModifier * delta
+	-- Panic is 0 to 100,
+	-- noise chance is always being reduced but is fighting with your current situation to go up, crouching makes it go down way faster.
+	local noiseChanceSettle = baseNoiseChanceSettleSpeed
+	if player:isSneaking() then
+		noiseChanceSettle = noiseChanceSettle * sneakingNoiseChanceSettleSpeedModifier
+	end
+	noiseChance = PZMath.clamp(noiseChance - noiseChanceSettle * delta, 0, 999) -- Can't go below zero.
 
-		-- If amount of visible zombies increased from before then add an increase spike to noise chance, so not looking at them helps.
-		local visibleZombiesSpikeNoiseChanceInfluence = 0
-		local currentNumVisibleZombies = stats:getNumVisibleZombies()
-		if previousNumVisibleZombies < currentNumVisibleZombies then
-			visibleZombiesSpikeNoiseChanceInfluence = currentNumVisibleZombies * visibleZombiesSpikeNoiseChanceModifier
+	local panicNoiseChanceInfluence = baseNoiseChanceRiseSpeed * (panic / 100) * panicNoiseChanceRiseModifier * delta
+
+	-- If amount of visible zombies increased from before then add an increase spike to noise chance, so not looking at them helps.
+	local visibleZombiesSpikeNoiseChanceInfluence = 0
+	local currentNumVisibleZombies = stats:getNumVisibleZombies()
+	if previousNumVisibleZombies < currentNumVisibleZombies then
+		visibleZombiesSpikeNoiseChanceInfluence = currentNumVisibleZombies * visibleZombiesSpikeNoiseChanceModifier
+	end
+
+	-- Also steady increase longer you look.
+	local visibleZombiesNoiseChanceInfluence = baseNoiseChanceRiseSpeed * currentNumVisibleZombies * visibleZombiesNoiseChanceRiseModifier * delta
+	local chasingZombiesNoiseChanceInfluence = baseNoiseChanceRiseSpeed * stats:getNumChasingZombies() * chasingZombiesNoiseChanceRiseModifier * delta
+	local veryCloseZombiesNoiseChanceInfluence = baseNoiseChanceRiseSpeed * stats:getNumVeryCloseZombies() * veryCloseZombiesNoiseChanceRiseModifier * delta
+	-- Chance to scream is ever increasing.
+	noiseChance = noiseChance + panicNoiseChanceInfluence + visibleZombiesSpikeNoiseChanceInfluence + visibleZombiesNoiseChanceInfluence + chasingZombiesNoiseChanceInfluence + veryCloseZombiesNoiseChanceInfluence
+	-- Save previous num visible zombies.
+	previousNumVisibleZombies = currentNumVisibleZombies
+
+	local rand = ZombRandFloat(0, 1)  -- Random value between 0 and 100
+	if rand <= noiseChance then
+
+		-- Running makes you more volatile, sneaking makes you calmer.
+		local runningFearNoiseAmount = 0
+		local sneakingFearNoiseAmount = 0
+		if player:isSneaking() then 
+			sneakingFearNoiseAmount = sneakingFearNoiseAmountInfluence
+		elseif player:isRunning() then
+			runningFearNoiseAmount = runningFearNoiseAmountInfluence 
+		end
+		-- Current zombie situation has factor.
+		local panicFearNoiseAmount = panic/100 * panicFearNoiseAmountInfluence
+		local visibleZombiesFearNoiseAmount = stats:getNumVisibleZombies() * visibleZombiesFearNoiseAmountInfluence
+		local chasingZombiesFearNoiseAmount = (stats:getNumChasingZombies() * chasingZombiesFearNoiseAmountInfluence) or 0
+		local veryCloseZombiesFearNoiseAmount = stats:getNumVeryCloseZombies() * veryCloseZombiesFearNoiseAmountInfluence
+
+		local fearNoiseAmount = runningFearNoiseAmount + sneakingFearNoiseAmount + panicFearNoiseAmount + visibleZombiesFearNoiseAmount + chasingZombiesFearNoiseAmount + veryCloseZombiesFearNoiseAmount
+		-- We cap the noise you make based off your panic, to work with traits or mods that make you desensitized / braver over time.
+		fearNoiseAmount = PZMath.clamp(fearNoiseAmount, 0, (panic + 50) * 1.5)
+
+		--[[
+		print("total = " .. fearNoiseAmount)
+		print("buildup influence = " .. noiseChance * 100)
+		print("panic influence = " .. panicFearNoiseAmount)
+		print("visible influence = " .. visibleZombiesFearNoiseAmount)
+		print("chasing influence = " .. chasingZombiesFearNoiseAmount)
+		print("close influence = " .. veryCloseZombiesFearNoiseAmount)
+		]]--
+		-- We say a scream line
+		if fearNoiseAmount <= 30 then
+			doSlightFearNoise(player)
+		elseif fearNoiseAmount <= 60 then
+			doFearNoise(player)
+		elseif fearNoiseAmount <= 90 then
+			doStrongFearNoise(player)
+		elseif fearNoiseAmount >= 100 then
+			doExtremeFearNoise(player)
 		end
 
-		-- Also steady increase longer you look.
-		local visibleZombiesNoiseChanceInfluence = baseNoiseChanceRiseSpeed * currentNumVisibleZombies * visibleZombiesNoiseChanceRiseModifier * delta
-		local chasingZombiesNoiseChanceInfluence = baseNoiseChanceRiseSpeed * stats:getNumChasingZombies() * chasingZombiesNoiseChanceRiseModifier * delta
-		local veryCloseZombiesNoiseChanceInfluence = baseNoiseChanceRiseSpeed * stats:getNumVeryCloseZombies() * veryCloseZombiesNoiseChanceRiseModifier * delta
-		-- Chance to scream is ever increasing.
-		noiseChance = noiseChance + panicNoiseChanceInfluence + visibleZombiesSpikeNoiseChanceInfluence + visibleZombiesNoiseChanceInfluence + chasingZombiesNoiseChanceInfluence + veryCloseZombiesNoiseChanceInfluence
-		-- Save previous num visible zombies.
-		previousNumVisibleZombies = currentNumVisibleZombies
-
-		local rand = ZombRandFloat(0, 1)  -- Random value between 0 and 100
-		if rand <= noiseChance then
-
-			-- Running makes you more volatile, sneaking makes you calmer.
-			local runningFearNoiseAmount = 0
-			local sneakingFearNoiseAmount = 0
-			if player:isSneaking() then 
-				sneakingFearNoiseAmount = sneakingFearNoiseAmountInfluence
-			elseif player:isRunning() then
-				runningFearNoiseAmount = runningFearNoiseAmountInfluence 
-			end
-			-- Current zombie situation has factor.
-			local panicFearNoiseAmount = panic/100 * panicFearNoiseAmountInfluence
-			local visibleZombiesFearNoiseAmount = stats:getNumVisibleZombies() * visibleZombiesFearNoiseAmountInfluence
-			local chasingZombiesFearNoiseAmount = (stats:getNumChasingZombies() * chasingZombiesFearNoiseAmountInfluence) or 0
-			local veryCloseZombiesFearNoiseAmount = stats:getNumVeryCloseZombies() * veryCloseZombiesFearNoiseAmountInfluence
-
-			local fearNoiseAmount = runningFearNoiseAmount + sneakingFearNoiseAmount + panicFearNoiseAmount + visibleZombiesFearNoiseAmount + chasingZombiesFearNoiseAmount + veryCloseZombiesFearNoiseAmount
-			-- We cap the noise you make based off your panic, to work with traits or mods that make you desensitized / braver over time.
-			fearNoiseAmount = PZMath.clamp(fearNoiseAmount, 0, (panic + 50) * 1.5)
-
-			print("total = " .. fearNoiseAmount)
-			print("buildup influence = " .. noiseChance * 100)
-			print("panic influence = " .. panicFearNoiseAmount)
-			print("visible influence = " .. visibleZombiesFearNoiseAmount)
-			print("chasing influence = " .. chasingZombiesFearNoiseAmount)
-			print("close influence = " .. veryCloseZombiesFearNoiseAmount)
-			-- We say a scream line
-			if fearNoiseAmount <= 30 then
-				doSlightFearNoise(player)
-			elseif fearNoiseAmount <= 60 then
-				doFearNoise(player)
-			elseif fearNoiseAmount <= 90 then
-				doStrongFearNoise(player)
-			elseif fearNoiseAmount >= 100 then
-				doExtremeFearNoise(player)
-			end
-
-			-- Reset the noiseChance buildup
-			noiseChance = 0
-		end
+		-- Reset the noiseChance buildup
+		noiseChance = 0
 	end
 end
 

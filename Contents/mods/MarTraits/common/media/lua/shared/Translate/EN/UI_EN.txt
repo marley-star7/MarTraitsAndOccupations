@@ -30,6 +30,9 @@ UI_EN = {
 
     -- MISC TRAITS --
 
+    UI_trait_Mar_Quiet ="Quiet",
+    UI_trait_Mar_QuietDesc ="+1 Sneaking",
+
     UI_trait_Mar_Ingenuitive = "Ingenuitive",
     UI_trait_Mar_IngenuitiveDesc = "Automatically know all recipes that would otherwise require a magazine or professional knowledge.<br>(This also includes recipes added by mods.)",
 

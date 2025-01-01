@@ -55,8 +55,11 @@ UI_EN = {
     UI_trait_Mar_DefenseTactics = "Defense Tactics",
     UI_trait_Mar_DefenseTacticsDesc = "Better chance to successfully defend against zombie attacks.",
 
-    UI_trait_Mar_Demoman = "Demolition Expert",
-    UI_trait_Mar_DemomanDesc = "Faster destructions.<br>Faster and more efficient sledgehammer swing.",
+    UI_trait_Mar_Demoman = "Demolition Worker",
+    UI_trait_Mar_DemomanDesc = "Better at destructions.<br>Faster and more efficient sledgehammer swing.",
+
+    UI_trait_Mar_PickaxeMan = "Pick-ax-pert",
+    UI_trait_Mar_PickaxeManDesc = "Better at mining.<br>Faster pickaxe swing.",
 
     UI_trait_Mar_RushHour = "Rush Hour",
     UI_trait_Mar_RushHourDesc = "Enter cars, and move stuff around cars faster.",

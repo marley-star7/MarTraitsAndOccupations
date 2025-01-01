@@ -191,7 +191,7 @@ MarTraits.inattentiveCalcTripChance = function(tripChance)
     tripChanceCooldownModifier = tripChanceCooldownModifier + (1 + (stats:getDrunkenness()/100))
 
     squaresTillCanTrip = squareTripCooldown/tripChanceCooldownModifier
-    print(tripChance)
+    --print(tripChance)
     return tripChance
 end
 

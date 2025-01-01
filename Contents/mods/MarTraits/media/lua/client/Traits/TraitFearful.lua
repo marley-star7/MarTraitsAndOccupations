@@ -43,7 +43,7 @@ local function fearfulUpdate(player)
 	-- Panic is 0 to 100
 	noiseChance = noiseChance + baseNoiseChance * (1 +(panic / 100))
 	noiseChance = noiseChance + baseNoiseChance * stats:getNumVisibleZombies()
-	print(noiseChance)
+	--print(noiseChance)
 
 	if ZombRand(0, 100) <= noiseChance then
 		-- Reset the noiseChance buildup

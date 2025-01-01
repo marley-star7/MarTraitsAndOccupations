@@ -54,13 +54,12 @@ function FearHeightUpdate(player)
     if height >= 1 then
         fearHeightStress = height/4;
         if player:getVariableBoolean("ClimbWindowStarted") then
-            print(stats:getNumChasingZombies())
+            --print(stats:getNumChasingZombies())
             squareVaultingTo = playerSquare:getAdjacentSquare(IsoDirections.fromAngle(player:getLastAngle()))
             if squareVaultingTo and squareVaultingTo:isSolidFloor() then
                 -- Just vault it lol
             elseif (stats:getNumChasingZombies() > 2 and height <= 4) or stats:getNumVeryCloseZombies() >= 1 then
                 stats:setPanic(100);
-                print("YESSSSSSSSSSSSS")
                 --player:setVariable("ClimbWindowOutcome", "back")
             else
                 if height >= 2 then

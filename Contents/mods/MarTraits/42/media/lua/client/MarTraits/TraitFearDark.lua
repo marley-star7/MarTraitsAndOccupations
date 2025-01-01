@@ -1,5 +1,5 @@
 -- If this value goes too low it will struggle to keep up with the natural panic loss
-local fearDarkPanicReachSpeed = 0.05
+local fearDarkPanicReachSpeed = 0.5
 
 -- TODO: add check for where your character is looking as well, so even if you have a big light source on you, you can still be scared if its generally dark elsewhere.
 local function fearDarkUpdate(player)
