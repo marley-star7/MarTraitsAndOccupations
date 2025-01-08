@@ -1,4 +1,5 @@
-require("MarLibrary.lua")
+require("MarLibrary")
+require("MarLibraryEvents")
 
 local fearHeightPanicReachSpeed = 1.5 -- Any lower it kinda breaks.
 local squaresAheadForHeightCheck = 3;
@@ -71,7 +72,7 @@ local function fearHeightUpdate(player)
 
             if isFirstFrameOfVault then
                 -- Add some panic for how high the vault is 
-                stats:setPanic(50 * height);
+                stats:setPanic(stats:getPanic() + (50 * height));
                 local squareVaultingTo = playerSquare:getAdjacentSquare(IsoDirections.fromAngle(player:getLastAngle()))
 
                 if squareVaultingTo and squareVaultingTo:isSolidFloor() then
@@ -101,8 +102,6 @@ local function fearHeightUpdate(player)
             isFirstFrameOfVault = true
         end
     end
-
-    local panicLast = playerModData.fMarTraitsFearHeightPanicLastUpdate or 0
 
     ---------------------------
     -- SEE HEIGHT CACULATION --
@@ -152,9 +151,15 @@ local function fearHeightUpdate(player)
         end
     end
 
-    local newPanic = PZMath.lerp(stats:getPanic(), panicBeforeCalc - panicLast + fearHeightPanicDest, fearHeightPanicReachSpeed * delta) -- Will lerp to zero if no destination set this frame.
+    -- Beyond redundancy, very important don't remove this, makes sure the calculation below doesn't set to NaN and break panic forever!
+    if fearHeightPanicDest == 0 then return end
+
+    local currentPanic = stats:getPanic()
+    local closenessToPanicMod = PZMath.abs(PZMath.clamp(1 - currentPanic/fearHeightPanicDest, 0, 1))
+	local panicToAdd = (fearHeightPanicDest * fearHeightPanicReachSpeed) * closenessToPanicMod
+	local newPanic = currentPanic + panicToAdd * delta
+	newPanic = PZMath.clamp(newPanic, 0, 100)
 	stats:setPanic(newPanic)
-	playerModData.fMarTraitsFearHeightPanicLastUpdate = newPanic
 end
 
 Events.OnPlayerUpdate.Add(fearHeightUpdate)
