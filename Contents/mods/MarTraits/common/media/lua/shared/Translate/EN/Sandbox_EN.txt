@@ -21,6 +21,9 @@ Sandbox_EN = {
 	Sandbox_MarTraits_StrongBackCarryWeightBonus = "Strong Back Carry Weight Bonus",
 	Sandbox_MarTraits_WeakBackCarryWeightPenalty = "Weak Back Carry Weight Penalty",
 
+	Sandbox_MarTraits_FearfulMinimumKillsTillLose = "Fearful Minimum Kills Till Lose",
+	Sandbox_MarTraits_FearfulMaximumKillsTillLose = "Fearful Maximum Kills Till Lose",
+
 	Sandbox_MarTraits_LitheLumberingAreDynamic = "Lithe And Lumbering Can Be Gained/Lost",
 	Sandbox_MarTraits_LitheTurnSpeedPercentIncrease = "Lithe Turn Speed Percent Modifier",
 	Sandbox_MarTraits_LitheXPModifier = "Lithe XP Bonus",

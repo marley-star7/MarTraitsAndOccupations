@@ -102,7 +102,7 @@ local function fearHeightUpdate(player)
         end
     end
 
-    local panicLast = playerModData.fMarTraitsFearHeightPanicLastUpdate or 0;
+    local panicLast = playerModData.fMarTraitsFearHeightPanicLastUpdate or 0
 
     ---------------------------
     -- SEE HEIGHT CACULATION --

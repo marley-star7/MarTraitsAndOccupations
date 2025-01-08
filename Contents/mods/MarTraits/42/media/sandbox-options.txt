@@ -105,6 +105,26 @@ option MarTraits.BrokeLegFractureTime
 }
 
 
+option MarTraits.FearfulMinimumKillsTillLose
+{
+	type = integer, 
+	min = 0, 
+	max = 1000, 
+	default = 100,
+	page = MarTraits, 
+	translation = MarTraits_FearfulMinimumKillsTillLose,
+}
+option MarTraits.FearfulMaximumKillsTillLose
+{
+	type = integer, 
+	min = 0, 
+	max = 1000, 
+	default = 200,
+	page = MarTraits, 
+	translation = MarTraits_FearfulMaximumKillsTillLose,
+}
+
+
 option MarTraits.ThinBloodedBleedMoreModifier
 {
 	type = integer, 

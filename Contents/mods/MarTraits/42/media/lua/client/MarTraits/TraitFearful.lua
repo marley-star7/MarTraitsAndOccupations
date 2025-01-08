@@ -141,7 +141,12 @@ local function fearfulUpdate(player)
 	local chasingZombiesNoiseChanceInfluence = baseNoiseChanceRiseSpeed * stats:getNumChasingZombies() * chasingZombiesNoiseChanceRiseModifier * delta
 	local veryCloseZombiesNoiseChanceInfluence = baseNoiseChanceRiseSpeed * stats:getNumVeryCloseZombies() * veryCloseZombiesNoiseChanceRiseModifier * delta
 	-- Chance to scream is ever increasing.
-	noiseChance = noiseChance + panicNoiseChanceInfluence + visibleZombiesSpikeNoiseChanceInfluence + visibleZombiesNoiseChanceInfluence + chasingZombiesNoiseChanceInfluence + veryCloseZombiesNoiseChanceInfluence
+	-- Chance to scream increase lessens over time with how many zombies you kill.
+	local fearfulTimeRemovalMod = 1 - (player:getZombieKills()/SandboxVars.MarTraits.FearfulMaximumKillsTillLose)
+	local noiseChanceToAdd = panicNoiseChanceInfluence + visibleZombiesSpikeNoiseChanceInfluence + visibleZombiesNoiseChanceInfluence + chasingZombiesNoiseChanceInfluence + veryCloseZombiesNoiseChanceInfluence
+	noiseChanceToAdd = noiseChanceToAdd * fearfulTimeRemovalMod
+	noiseChance = noiseChance + noiseChanceToAdd
+	
 	-- Save previous num visible zombies.
 	previousNumVisibleZombies = currentNumVisibleZombies
 
@@ -163,6 +168,8 @@ local function fearfulUpdate(player)
 		local veryCloseZombiesFearNoiseAmount = stats:getNumVeryCloseZombies() * veryCloseZombiesFearNoiseAmountInfluence
 
 		local fearNoiseAmount = runningFearNoiseAmount + sneakingFearNoiseAmount + panicFearNoiseAmount + visibleZombiesFearNoiseAmount + chasingZombiesFearNoiseAmount + veryCloseZombiesFearNoiseAmount
+		-- Scream intensity lowers with how many zombies you kill as well, cuz your getting hardened.
+		local fearNoiseAmount = fearNoiseAmount * fearfulTimeRemovalMod
 		-- We cap the noise you make based off your panic, to work with traits or mods that make you desensitized / braver over time.
 		fearNoiseAmount = PZMath.clamp(fearNoiseAmount, 0, (panic + 50) * 1.5)
 
@@ -190,4 +197,33 @@ local function fearfulUpdate(player)
 	end
 end
 
+local function loseFearfulRoll()
+	local player = getPlayer()
+	if not player:HasTrait("Mar_Fearful") then return end
+
+	-- If you got brave, then return
+	if player:HasTrait("Brave") then 
+		player:getTraits():remove("Mar_Fearful")
+		return
+	end
+
+	local zombieKills = player:getZombieKills()
+	-- if over maximum fearful then remove
+		if zombieKills >= maxKillsTillRemoved then
+			player:getTraits():remove("Mar_Fearful")
+			return
+			--elseif killed more than minimum, roll a check to remove
+		elseif zombieKills > SandboxVars.MarTraits.FearfulMinimumKillsTillLose then
+			-- Chance of removal grows from 0 to 100 once hit minimum
+			local probability = (zombieKills - minKillsTillRemoved) / maxKillsTillRemoved
+			local probabilityDenominator = 100 * probability
+
+			if ZombRand(SandboxVars.MarTraits.FearfulMinimumKillsTillLose, SandboxVars.MarTraits.FearfulMaximumKillsTillLose) < SandboxVars.MarTraits.FearfulMinimumKillsTillLose then
+				player:getTraits():remove("Mar_Fearful")
+				return
+			end
+		end
+end
+
+Events.EveryHours.Add(loseFearfulRoll)
 Events.OnPlayerUpdate.Add(fearfulUpdate)
