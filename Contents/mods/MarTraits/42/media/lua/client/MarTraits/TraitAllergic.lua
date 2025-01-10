@@ -14,7 +14,7 @@ MarTraits = MarTraits or {}
 --Declare local scope variables
 local baseSneezeCountdown = 200.0 -- Counter to reset to on sneeze
 local sneezeTimeMultiplier = 1.0 -- Modified by traits like Prone to Illness
-local allergyRate = 0.05 --Multiplier on how fast allergy moodles move up and down
+local allergyRate = 0.02 --Multiplier on how fast allergy moodles move up and down
 local baseAllergyRecoveryRate = .4 -- How quickly allergies should recover per minute
 local proportionalAllergyRecoveryRate = 10.0 -- At max allergy, the base rate is multiplied by this number to return to "normal"
 local seasonDelta = 0.0 -- Tracks the effect of seasons outside of the season update.
@@ -163,8 +163,7 @@ MarTraits.updateTrackedItems = function()
 	if player == nil then 
 		player = getPlayer()
 	end
-	-- local player = getPlayer()
-	print("Updating Tracked Items")
+	--print("Updating Tracked Items")
 
 	if player:getModData().dictMarTraitsTrackedItems == nil or player:getModData().dictMarTraitsTrackedItems == {} then
 		return
@@ -172,24 +171,24 @@ MarTraits.updateTrackedItems = function()
 
 	for ID, item in pairs(player:getModData().dictMarTraitsTrackedItems) do
 		local pollen = MarTraits.getItemPollen(item)
-
-		print("Item "..item:getName().." has pollenLevel "..pollen)
+		--print("Item "..item:getName().." has pollenLevel "..pollen)
 
 		local wet = item:getWetness()
 		if wet ~= nil and wet > 0 then
 			local newMax = PZMath.max(100 - (wet * 2), 0)/100.0
-			print("Item is wet: "..wet.." , new max pollen "..newMax)
+			--print("Item is wet: "..wet.." , new max pollen "..newMax)
 			MarTraits.setItemPollen(item, PZMath.clampFloat(pollen, 0.0, newMax))
 		end
 
 		if MarTraits.getItemPollen(item) <= 0 then
-			print("Item "..item:getName().." is clean, remove from tracking!")
+			--print("Item "..item:getName().." is clean, remove from tracking!")
 			MarTraits.untrackItem(player,item)	
 		end
 	end
 end
 Events.EveryTenMinutes.Add(MarTraits.updateTrackedItems)
 
+--A list of item slots we can track pollen on.
 MarTraits.addTrackedItemType("Hat")
 MarTraits.addTrackedItemType("TorsoExtraVest")
 MarTraits.addTrackedItemType("Jacket")
@@ -477,6 +476,7 @@ MarTraits.treePollenClothesUpdate = function()
 end
 Events.EveryOneMinute.Add(MarTraits.treePollenClothesUpdate)
 
+local allergySneezeActive = false --Tracks if last loop, allergies caused sneezing. This is so we don't interfere with colds or other sneeze triggers.
 MarTraits.allergicSneezeUpdate = function()
 	if player == nil then 
 		player = getPlayer()
@@ -485,6 +485,8 @@ MarTraits.allergicSneezeUpdate = function()
 	if player:isAsleep() then
 		return
 	end 
+
+	local moodleShowing = false
 
 	if player:HasTrait("Mar_SeasonAllergic") then
 		local allergyDelta = 0.0
@@ -524,15 +526,13 @@ MarTraits.allergicSneezeUpdate = function()
 		allergyDelta = allergyDelta + PZMath.lerp(baseAllergyRecoveryRate, baseAllergyRecoveryRate * proportionalAllergyRecoveryRate, 1.0 - oldLevel)
 		local newLevel = MarTraits.setSeasonAllergyLevel(player, oldLevel + (allergyDelta * allergyRate)) 
 
+		if newLevel <= moodleLevel1 then
+			moodleShowing = true
+		end
 		print(string.format("SeasonalAllergy %.2f/%.2f (%.2f) | Season %.2f | Wind %.2f | Rain %.2f | Clothes %.2f | Trees %.2f", oldLevel, newLevel, allergyDelta * allergyRate, seasonDelta, windDelta, rainDelta, clothesDelta, treeDelta))
 
 		if moodleFrameworkActive == true then
 			moodle = MF.getMoodle("SeasonalAllergies", player:getPlayerNum())
-
-			if moodle:getValue() > newLevel then
-				moodle:doWiggle() --Allergies are intensifying
-			end
-
 			moodle:setValue(newLevel)
 		end
 
@@ -550,7 +550,6 @@ MarTraits.allergicSneezeUpdate = function()
 			print("Sneeze Change Updated: ",countChange)
 		end
 
-		print("Sneeze Change: ",countChange)
 		MarTraits.setSneezeCountdown(player,MarTraits.getSneezeCountdown(player) + countChange)
 	end
 
@@ -565,19 +564,16 @@ MarTraits.allergicSneezeUpdate = function()
 		end
 
 		local oldLevel = MarTraits.getDustAllergyLevel(player)
-
 		allergyDelta = allergyDelta + PZMath.lerp(baseAllergyRecoveryRate, baseAllergyRecoveryRate * proportionalAllergyRecoveryRate, 1.0 - oldLevel)
-
 		local newLevel = MarTraits.setDustAllergyLevel(player, oldLevel + (allergyDelta * allergyRate))
+
+		if newLevel <= moodleLevel1 then
+			moodleShowing = true
+		end
 
 		print(string.format("DustAllergy %.2f/%.2f (%.2f) | Room %.2f | Square %.2f", oldLevel, newLevel, allergyDelta * allergyRate, dustRoom * dustRoomMod, dustSquare * dustSquareMod))
 		if moodleFrameworkActive == true then
 			moodle = MF.getMoodle("DustAllergies",player:getPlayerNum())
-
-			if moodle:getValue() > newLevel then
-				moodle:doWiggle() --Allergies are intensifying
-			end
-			
 			moodle:setValue(newLevel)
 		end		
 
@@ -602,8 +598,13 @@ MarTraits.allergicSneezeUpdate = function()
 	if player:HasTrait("Mar_DustAllergic") or player:HasTrait("Mar_SeasonAllergic") then
 		print("Sneeze Countdown: ",MarTraits.getSneezeCountdown(player))
 		if MarTraits.getSneezeCountdown(player) <= 0 then
-			MarTraits.setSneezeCountdown(player, baseSneezeCountdown * sneezeTimeMultiplier)
-			--print("=========== Sneeze Triggered ============")
+			MarTraits.setSneezeCountdown(player, baseSneezeCountdown * sneezeTimeMultiplier * (ZombRand(70,100) * 0.01))
+
+			if not moodleShowing then
+				return --Abort if neither moodle is showing!
+			end
+			allergySneezeActive = true --Track that allergies caused a sneeze
+
 			local volume = sneezeSoundVolume
 			local range = sneezeSoundRange
 			if player:getBodyDamage():isHasACold() then
@@ -626,21 +627,19 @@ MarTraits.allergicSneezeUpdate = function()
 						itemSecondaryHand:Use()
 					end
 				end
-				player:getBodyDamage():setSneezeCoughActive(3)
-				if sneezeMuteMod > 0 then
+				player:getBodyDamage():setSneezeCoughActive(3) --Int 3 is "stifled" sneeze active
+				if sneezeMuteMod > 0 then -- If sneezeMuteMod == 0, then no sound is played!
 					addSound(player, player:getX(), player:getY(), player:getZ(), range * sneezeMuteMod, volume * sneezeMuteMod);
 				end
-				-- If sneezeMuteMod == 0, then no sound is played!
 
 			else -- "Sneezing No Tissue" by Hea
-				player:getBodyDamage():setSneezeCoughActive(1)
+				player:getBodyDamage():setSneezeCoughActive(1) --Int 1 is "normal" sneeze active
 				addSound(player, player:getX(), player:getY(), player:getZ(), range, volume);
 			end
 
-		else
-			--print("Active: "..player:getBodyDamage():getSneezeCoughActive())
-			--print("Disabled sneezeCoughActive")
-			player:getBodyDamage():setSneezeCoughActive(0)
+		else if allergySneezeActive then --Makes sure we don't disable a non-allergic sneeze.
+			allergySneezeActive = false
+			player:getBodyDamage():setSneezeCoughActive(0) --Disable sneezing
 		end
 	end
 end
