@@ -81,6 +81,8 @@ local function addMarTraitsTraits()
 	local traitDesentiziedCopy = MarLibrary.Traits.addTraitCopy("Desensitized", 12)
 	-- MISC TRAITS
 
+	local traitSeasonAllergic = MarLibrary.Traits.addTrait("Mar_SeasonAllergic",-3)
+	local traitDustAllergic = MarLibrary.Traits.addTrait("Mar_DustAllergic",-3)
 	local traitNoEmotion = MarLibrary.Traits.addTrait("Mar_NoEmotion", 16)
 	local traitDepressive = MarLibrary.Traits.addTrait("Mar_Depressive", -2)
 	--local traitAlcoholic = MarLibrary.Traits.addTrait("Mar_Alcoholic", -2)
