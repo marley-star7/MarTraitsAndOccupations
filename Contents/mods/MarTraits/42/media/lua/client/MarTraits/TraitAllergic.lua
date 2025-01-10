@@ -7,8 +7,8 @@ end
 MarTraits = MarTraits or {}
 
 -- TODO: add an increase spike of sneeze chance when rummaging through a heavily "dusty" room
--- TODO: change dust calculation to be stronger based on how much relative dust is in the size of the room, rather than total.
--- TODO: add an absolute smidgen of an effect for dust allergies when you have obscenely dirty clothes
+-- TODO: change dust calculation to be stronger based on how much relative dust in room compared to how many squares, rather than dust in all squares total?
+-- TODO: add an absolute smidgen of an effect for dust allergies when you have obscenely dirty clothes, shouldn't be hard.
 
 --Declare local scope variables
 local baseSneezeCountdown = 150 -- Counter to reset to on sneeze
