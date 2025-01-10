@@ -94,6 +94,14 @@ UI_EN = {
     UI_trait_Mar_Acrophobic = "Fear of Heights",
     UI_trait_Mar_AcrophobicDesc = "Panic while near large drops of elevation, at great heights, or while climbing ropes.<br>Chance to refuse to jump through windows depending on height.<br>Slower rope climbing speed, and more chance of falling.<br>Less likely to land safely after falls.",
 
+    -- ALLERGY TRAITS --
+
+    UI_trait_Mar_DustAllergic ="Dust Allergies",
+    UI_trait_Mar_DustAllergicDesc ="The dust and dirt of uncared for interiors may cause you to sneeze.<br>Increased allergies when wearing dust and dirt covered clothes.",
+
+    UI_trait_Mar_SeasonAllergic ="Seasonal Allergies",
+    UI_trait_Mar_SeasonAllergicDesc ="Can go into allergic fits when outdoors in Kentucky’s lively months.<br>Sneeze more often when moving through trees.<br>Increased allergies as the great outdoors sticks to your clothes.",
+
     -- CARRY WEIGHT TRAITS --
 
     UI_trait_Mar_StrongBack ="Strong Back",
@@ -103,6 +111,7 @@ UI_EN = {
     UI_trait_Mar_WeakBackDesc ="-2 carry weight.<br>Strength affects carry weight slightly less.",
 
     -- XP TRAITS --
+
     UI_trait_Mar_WarMonger = "Eager Fighter",
     UI_trait_Mar_WarMongerDesc = "Increased combat XP gains.",
     UI_trait_Mar_WarMongerDescExplicit = "25% extra Weapon XP gains",

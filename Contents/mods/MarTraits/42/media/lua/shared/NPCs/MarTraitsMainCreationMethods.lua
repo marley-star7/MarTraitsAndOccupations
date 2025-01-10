@@ -58,6 +58,10 @@ local function addMarTraitsTraits()
 		"Mar_Acrophobic", 
 		{"ISClimbSheetRopeAction", -1 }
 	)
+	-- ALLERGY TRAITS
+	local traitSeasonalAllergies = MarLibrary.Traits.addTrait("Mar_SeasonAllergic", -1)
+	local traitDustAllergies = MarLibrary.Traits.addTrait("Mar_DustAllergic", -2)
+
 	-- LIMP TRAITS --
 	local traitMinorLimp = MarLibrary.Traits.addTrait("Mar_MinorLimp", -12)
 	local traitMajorLimp = MarLibrary.Traits.addTrait("Mar_MajorLimp", -24)

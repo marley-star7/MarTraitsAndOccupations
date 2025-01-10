@@ -15,4 +15,13 @@ Moodles_EN {
     Moodles_Anger_Bad_desc_lvl3 = "A ball of rage.",
     Moodles_Anger_Bad_lvl4 = "Furious",
     Moodles_Anger_Bad_desc_lvl4 = "Going to break something, or someone",
+
+    Moodles_Allergies_Bad_lvl1 = "Sniffy",
+    Moodles_Allergies_Bad_lvl2 = "Watery",
+    Moodles_Allergies_Bad_lvl3 = "Allergies",
+    Moodles_Allergies_Bad_lvl4 = "Puffy",
+    Moodles_Allergies_Bad_desc_lvl1 = "Allergies acting up.",
+    Moodles_Allergies_Bad_desc_lvl2 = "Undergoing heavy hay fever, Maybe it's time to wash your clothes",
+    Moodles_Allergies_Bad_desc_lvl3 = "Sneeze incoming!",
+    Moodles_Allergies_Bad_desc_lvl4 = "Eyes watering, Can barely breath.",
 }

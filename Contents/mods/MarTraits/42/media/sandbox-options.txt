@@ -226,18 +226,3 @@ option MarTraits.LumberingLoseLevel
 	page = MarTraits, 
 	translation = MarTraits_LumberingLoseLevel,
 }
-
-
---======================--
--- BALANCE TRAITS STUFF --
---======================--
-
-option BalanceTraits.Alchoholic
-{
-    type = integer,
-    min = -40,
-    max = 40,
-    default = 7,
-    page = BalanceTraits,
-    translation = BalanceTraits_Alchoholic,
-}
