@@ -226,3 +226,294 @@ option MarTraits.LumberingLoseLevel
 	page = MarTraits, 
 	translation = MarTraits_LumberingLoseLevel,
 }
+
+option BalanceTraits.Mar_Creative
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = 2,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_Creative,
+}
+option BalanceTraits.Mar_ThickBlooded
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = 2,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_ThickBlooded,
+}
+option BalanceTraits.Mar_ElectricalKnowledge
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = 3,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_ElectricalKnowledge,
+}
+option BalanceTraits.Mar_Quiet
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = 3,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_Quiet,
+}
+option BalanceTraits.Mar_BasketballPlayer
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = 4,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_BasketballPlayer,
+}
+option BalanceTraits.Mar_RacketPlayer
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = 4,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_RacketPlayer,
+}
+option BalanceTraits.Mar_WarMonger
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = 4,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_WarMonger,
+}
+option BalanceTraits.Mar_WeldingKnowledge
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = 4,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_WeldingKnowledge,
+}
+option BalanceTraits.Mar_KeenDriver
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = 5,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_KeenDriver,
+}
+option BalanceTraits.Mar_StrongBack
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = 5,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_StrongBack,
+}
+option BalanceTraits.Mar_FastWorker
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = 6,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_FastWorker,
+}
+option BalanceTraits.Mar_FootballPlayer
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = 6,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_FootballPlayer,
+}
+option BalanceTraits.Mar_Lithe
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = 6,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_Lithe,
+}
+option BalanceTraits.Mar_SoccerPlayer
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = 6,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_SoccerPlayer,
+}
+option BalanceTraits.Mar_GunKnowledge
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = 7,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_GunKnowledge,
+}
+option BalanceTraits.Mar_NoEmotion
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = 16,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_NoEmotion,
+}
+
+
+option BalanceTraits.Mar_Acrophobic
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = -1,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_Acrophobic,
+}
+option BalanceTraits.Mar_SeasonAllergic
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = -1,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_SeasonAllergic,
+}
+option BalanceTraits.Mar_Alcoholic
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = -2,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_Alcoholic,
+}
+option BalanceTraits.Mar_Depressive
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = -2,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_Depressive,
+}
+option BalanceTraits.Mar_Nyctophobic
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = -2,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_Nyctophobic,
+}
+option BalanceTraits.Mar_Uncreative
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = -2,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_Uncreative,
+}
+option BalanceTraits.Mar_ThinBlooded
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = -3,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_ThinBlooded,
+}
+option BalanceTraits.Mar_DustAllergic
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = -4,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_DustAllergic,
+}
+option BalanceTraits.Mar_Fearful
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = -4,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_Fearful,
+}
+option BalanceTraits.Mar_PoorDriver
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = -5,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_PoorDriver,
+}
+option BalanceTraits.Mar_WeakBack
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = -5,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_WeakBack,
+}
+option BalanceTraits.Mar_Lumbering
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = -6,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_Lumbering,
+}
+option BalanceTraits.Mar_SlowWorker
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = -6,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_SlowWorker,
+}
+option BalanceTraits.Mar_Inattentive
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = -8,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_Inattentive,
+}
+option BalanceTraits.Mar_MinorLimp
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = -12,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_MinorLimp,
+}
+option BalanceTraits.Mar_MajorLimp
+{
+    type = integer,
+    min = -60,
+    max = 60,
+    default = -24,
+    page = BalanceTraits,
+    translation = BalanceTraits_Mar_MajorLimp,
+}

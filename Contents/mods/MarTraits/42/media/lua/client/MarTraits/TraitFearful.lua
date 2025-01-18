@@ -25,39 +25,92 @@ local veryCloseZombiesFearNoiseAmountInfluence = 15
 
 local secondsTillUpdate = 0
 local isScreaming = false
+local screamCooldown = 0
 local previousNumVisibleZombies = 0
+
+local function stopAllFearNoises(player)
+	-- Stop da breathing
+	player:stopPlayerVoiceSound("ApplyBandage")
+	player:stopPlayerVoiceSound("PainFromScratch")
+	player:stopPlayerVoiceSound("PainFromLacerate")
+	player:stopPlayerVoiceSound("PainFromBite")
+	player:stopPlayerVoiceSound("DeathFall")
+	player:stopPlayerVoiceSound("DeathEaten")
+end
 
 -- "PainFromGlassCut" -- For "ah shits"
 local function doSlightFearNoise(player)
+	stopAllFearNoises(player)
 	player:playerVoiceSound("PainFromScratch")
-	addSound(player, player:getX(), player:getY(), player:getZ(), 2, 4)
+	screamCooldown = 6
+	addSound(player, player:getX(), player:getY(), player:getZ(), 4, 6)
 	print("Slight Fear Noise Done")
 end
 
 -- "PainFromGlassCut" -- For "ah shits"
 local function doFearNoise(player)
+	stopAllFearNoises(player)
 	player:playerVoiceSound("PainFromLacerate")
-	addSound(player, player:getX(), player:getY(), player:getZ(), 4, 8)
+	screamCooldown = 6
+	addSound(player, player:getX(), player:getY(), player:getZ(), 8, 12)
 	print("Fear Noise Done")
 end
 
 -- For small scares.
 local function doStrongFearNoise(player)
+	stopAllFearNoises(player)
 	player:playerVoiceSound("PainFromBite")
-	addSound(player, player:getX(), player:getY(), player:getZ(), 8, 16)
+	screamCooldown = 8
+	addSound(player, player:getX(), player:getY(), player:getZ(), 12, 16)
 	print("Strong Fear Noise Done")
 end
 
 -- "DeathFall" -- For really panic scream moments.
 local function doExtremeFearNoise(player)
+	-- Stop da breathing
+	player:stopPlayerVoiceSound("ApplyBandage")
 	-- 2 in 5 chance to use deathEaten occasionally as mixup.
-	if ZombRand(1, 5) <= 2 then
+	if ZombRand(1, 5) <= 3 then
 		player:playerVoiceSound("DeathEaten")
+
+		-- We cut the sound off early because alot of them have very unfitting goofy ending noises, 
+		-- random chance to keep going lol, do it slightly earlier so it masks the sudden stops.
+		MarLibrary.delayFuncByDelta(
+			function(player)
+				player:stopPlayerVoiceSound("DeathEaten")
+
+				local rand = ZombRand(0, 4)
+				if rand <= 1 then
+					doSlightFearNoise(player)
+				elseif rand <= 2 then
+					doFearNoise(player)
+				elseif rand <= 3 then
+					doStrongFearNoise(player)
+				else
+					player:playerVoiceSound("ApplyBandage")
+				end
+			end,
+			10 + ZombRand(-1, 1),
+			player
+		)
 	else
 		player:playerVoiceSound("DeathFall")
 	end
 	addSound(player, player:getX(), player:getY(), player:getZ(), 40, 50)
 	print("Extreme Fear Noise Done")
+	screamCooldown = 30
+end
+
+local function doFearNoiseByStrength(player, fearNoiseAmount)
+	if fearNoiseAmount <= 30 then
+		doSlightFearNoise(player)
+	elseif fearNoiseAmount <= 60 then
+		doFearNoise(player)
+	elseif fearNoiseAmount <= 90 then
+		doStrongFearNoise(player)
+	elseif fearNoiseAmount >= 100 then
+		doExtremeFearNoise(player)
+	end
 end
 
 -- Removed for most sounds of them having a weird "blegghhh" at the end when they "die" lol, kept it in extreme just as a mixup
@@ -85,7 +138,6 @@ end
 	-- "FemaleHeavyBreath"
 	-- "FemaleHeavyBreathPanic"
 
--- TODO: figure out how to make heavy breathing panting sounds like low endurance does.
 local function fearfulUpdate(player)
 	if not player:HasTrait("Mar_Fearful") then return end
 
@@ -124,7 +176,12 @@ local function fearfulUpdate(player)
 	local noiseChanceSettle = baseNoiseChanceSettleSpeed
 	if player:isSneaking() then
 		noiseChanceSettle = noiseChanceSettle * sneakingNoiseChanceSettleSpeedModifier
+	elseif panic > 70 then
+		-- Closest to constant breathing noise I could get...
+		player:playerVoiceSound("ApplyBandage")
+		addSound(player, player:getX(), player:getY(), player:getZ(), 6, 10)
 	end
+
 	noiseChance = PZMath.clamp(noiseChance - noiseChanceSettle * delta, 0, 999) -- Can't go below zero.
 
 	local panicNoiseChanceInfluence = baseNoiseChanceRiseSpeed * (panic / 100) * panicNoiseChanceRiseModifier * delta
@@ -150,8 +207,9 @@ local function fearfulUpdate(player)
 	-- Save previous num visible zombies.
 	previousNumVisibleZombies = currentNumVisibleZombies
 
+	screamCooldown = PZMath.clamp(screamCooldown - 1 * delta, 0, 99)
 	local rand = ZombRandFloat(0, 1)  -- Random value between 0 and 100
-	if rand <= noiseChance then
+	if rand <= noiseChance and screamCooldown <= 0 then
 
 		-- Running makes you more volatile, sneaking makes you calmer.
 		local runningFearNoiseAmount = 0
@@ -182,15 +240,7 @@ local function fearfulUpdate(player)
 		print("close influence = " .. veryCloseZombiesFearNoiseAmount)
 		]]--
 		-- We say a scream line
-		if fearNoiseAmount <= 30 then
-			doSlightFearNoise(player)
-		elseif fearNoiseAmount <= 60 then
-			doFearNoise(player)
-		elseif fearNoiseAmount <= 90 then
-			doStrongFearNoise(player)
-		elseif fearNoiseAmount >= 100 then
-			doExtremeFearNoise(player)
-		end
+		doFearNoiseByStrength(player, fearNoiseAmount)
 
 		-- Reset the noiseChance buildup
 		noiseChance = 0

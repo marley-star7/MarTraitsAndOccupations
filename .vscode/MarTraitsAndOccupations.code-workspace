@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../../MarLibrary"
+		},
+		{
+			"path": "../../BalanceTraits"
 		}
 	],
 	"settings": {}

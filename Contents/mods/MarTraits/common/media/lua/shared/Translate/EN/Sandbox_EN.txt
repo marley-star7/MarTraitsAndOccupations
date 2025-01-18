@@ -19,7 +19,7 @@ Sandbox_EN = {
 	Sandbox_MarTraits_ThinBloodedBleedMoreModifier = "Thin Blooded Bleed More Percentage",
 	
 	Sandbox_MarTraits_StrongBackCarryWeightBonus = "Strong Back Carry Weight Bonus",
-	Sandbox_MarTraits_WeakBackCarryWeightPenalty = "Weak Back Carry Weight Penalty",
+	Sandbox_MarTraits_WeakBackCarryWeightPenalty = "Poor Back Carry Weight Penalty",
 
 	Sandbox_MarTraits_FearfulMinimumKillsTillLose = "Fearful Minimum Kills Till Lose",
 	Sandbox_MarTraits_FearfulMaximumKillsTillLose = "Fearful Maximum Kills Till Lose",
@@ -33,4 +33,54 @@ Sandbox_EN = {
 	Sandbox_MarTraits_LumberingLoseLevel = "Lithe Lose Level",
 
 	Sandbox_MarTraits_StompTraitBonus = "Stomp Trait Bonus",
+
+	-- BALANCE TRAITS STUFF--
+
+	Sandbox_BalanceTraits_Mar_BasketballPlayer = "Basketball Player",
+	Sandbox_BalanceTraits_Mar_FootballPlayer = "Football Player",
+    Sandbox_BalanceTraits_Mar_SoccerPlayer = "Soccer Player",
+	Sandbox_BalanceTraits_Mar_RacketPlayer = "Racket Player",
+
+    Sandbox_BalanceTraits_Mar_WeldingKnowledge = "Welding Knowledge",
+	Sandbox_BalanceTraits_Mar_ElectricalKnowledge = "Electrical Knowledge",
+	Sandbox_BalanceTraits_Mar_GunKnowledge = "Gun Knowledge",
+
+	Sandbox_BalanceTraits_Mar_Quiet ="Quiet",
+	Sandbox_BalanceTraits_Mar_Unwavering = "Unwavering",
+
+	Sandbox_BalanceTraits_Mar_ThickBlooded = "Thick Blooded",
+	Sandbox_BalanceTraits_Mar_ThinBlooded = "Thin Blooded",
+
+	Sandbox_BalanceTraits_Mar_FastWorker = "Fast Worker",
+	Sandbox_BalanceTraits_Mar_SlowWorker = "Slow Worker",
+
+	Sandbox_BalanceTraits_Mar_Lithe ="Lithe",
+	Sandbox_BalanceTraits_Mar_Lumbering ="Lumbering",
+
+	Sandbox_BalanceTraits_Mar_BrokeLeg ="Broken",
+	Sandbox_BalanceTraits_Mar_MinorLimp = "Slight Limp",
+	Sandbox_BalanceTraits_Mar_MajorLimp = "Major Limp",
+
+	Sandbox_BalanceTraits_Mar_KeenDriver ="Keen Driver",
+	Sandbox_BalanceTraits_Mar_PoorDriver ="Poor Driver",
+
+	Sandbox_BalanceTraits_Mar_Fearful ="Jumpy",
+	Sandbox_BalanceTraits_Mar_Nyctophobic = "Fear of the Dark",
+	Sandbox_BalanceTraits_Mar_Acrophobic = "Fear of Heights",
+
+	Sandbox_BalanceTraits_Mar_SeasonAllergic ="Seasonal Allergies",
+	Sandbox_BalanceTraits_Mar_DustAllergic ="Dust Allergies",
+
+	Sandbox_BalanceTraits_Mar_StrongBack ="Strong Back",
+	Sandbox_BalanceTraits_Mar_WeakBack ="Poor Back",
+
+	Sandbox_BalanceTraits_Mar_WarMonger = "Eager Fighter",
+	Sandbox_BalanceTraits_Mar_Artist = "Artist",
+	Sandbox_BalanceTraits_Mar_Creative = "Creative",
+	Sandbox_BalanceTraits_Mar_Uncreative = "Uncreative",
+
+	Sandbox_BalanceTraits_Mar_Inattentive ="Inattentive",
+	Sandbox_BalanceTraits_Mar_Alcoholic = "Alcoholic",
+	Sandbox_BalanceTraits_Mar_Depressive ="Depressive",
+	Sandbox_BalanceTraits_Mar_NoEmotion = "Emotionally Numb",
 }

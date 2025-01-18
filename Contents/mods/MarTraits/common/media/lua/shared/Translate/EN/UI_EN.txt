@@ -7,7 +7,7 @@ UI_EN = {
     UI_trait_Mar_FootballPlayer = "Football Player",
     UI_trait_Mar_FootballPlayerDesc = "+1 Strength<br>+1 Sprinting",
 
-    UI_trait_Mar_RacketPlayer = "Racket Player",
+    UI_trait_Mar_FootballPlayer = "Football Player",
     UI_trait_Mar_RacketPlayerDesc = "+1 Short Blunt",
 
     UI_trait_Mar_SoccerPlayer = "Soccer Player",
@@ -50,10 +50,10 @@ UI_EN = {
     -- WORKER TRAITS --
 
     UI_trait_Mar_FastWorker = "Fast Worker",
-    UI_trait_Mar_FastWorkerDesc = "Take less time to get things done.<br>Perform timed actions faster.",
+    UI_trait_Mar_FastWorkerDesc = "Takes less time to get things done.<br>Perform timed actions faster.",
 
     UI_trait_Mar_SlowWorker = "Slow Worker",
-    UI_trait_Mar_SlowWorkerDesc = "Take longer to get things done.<br>Perform timed actions slower.",
+    UI_trait_Mar_SlowWorkerDesc = "Takes longer to get things done.<br>Perform timed actions slower.",
 
     -- TURN SPEED TRAITS --
 
@@ -84,8 +84,8 @@ UI_EN = {
 
     -- FEAR TRAITS --
 
-    UI_trait_Mar_Fearful ="Fearful",
-    UI_trait_Mar_FearfulDesc ="Audibly scared and likely to scream aloud when panicked.<br>Jumpscares and zombie attacks cause you to scream.<br>Can attempt to muffle screams by crouching.",
+    UI_trait_Mar_Fearful ="Jumpy",
+    UI_trait_Mar_FearfulDesc ="Audibly scared and likely to scream aloud when panicked.<br>Jumpscares and zombie attacks cause you to scream.<br>Attempt to muffle screams while sneaking.",
 
     UI_trait_Mar_Nyctophobic = "Fear of the Dark",
     UI_trait_Mar_NyctophobicDesc = "Gets panicked in the dark.",
@@ -96,18 +96,18 @@ UI_EN = {
 
     -- ALLERGY TRAITS --
 
-    UI_trait_Mar_DustAllergic ="Dust Allergies",
-    UI_trait_Mar_DustAllergicDesc ="The dust and dirt of uncared for interiors may cause you to sneeze.<br>Increased allergies when wearing dust and dirt covered clothes.",
-
     UI_trait_Mar_SeasonAllergic ="Seasonal Allergies",
     UI_trait_Mar_SeasonAllergicDesc ="Can go into allergic fits when outdoors in Kentucky’s lively months.<br>Sneeze more often when moving through trees.<br>Increased allergies as the great outdoors sticks to your clothes.",
+
+    UI_trait_Mar_DustAllergic ="Dust Allergies",
+    UI_trait_Mar_DustAllergicDesc ="The dust and dirt of uncared for interiors may cause you to sneeze.<br>Increased allergies when wearing dust and dirt covered clothes.",
 
     -- CARRY WEIGHT TRAITS --
 
     UI_trait_Mar_StrongBack ="Strong Back",
     UI_trait_Mar_StrongBackDesc ="+2 carry weight.<br>Strength affects carry weight slightly more.",
 
-    UI_trait_Mar_WeakBack ="Weak Back",
+    UI_trait_Mar_WeakBack ="Poor Back",
     UI_trait_Mar_WeakBackDesc ="-2 carry weight.<br>Strength affects carry weight slightly less.",
 
     -- XP TRAITS --
@@ -116,14 +116,22 @@ UI_EN = {
     UI_trait_Mar_WarMongerDesc = "Increased combat XP gains.",
     UI_trait_Mar_WarMongerDescExplicit = "25% extra Weapon XP gains",
 
-    UI_trait_Mar_Artist = "Artistic",
-    UI_trait_Mar_ArtistDesc = "Increased art related XP gains.",
-    UI_trait_Mar_ArtistDescExplicit = "25% extra art related XP gains",
+    UI_trait_Mar_Artist = "Artist",
+    UI_trait_Mar_ArtistDesc = "Moderately increased art related XP gains.",
+    UI_trait_Mar_ArtistDescExplicit = "35% extra crafting related XP gains",
+
+    UI_trait_Mar_Creative = "Creative",
+    UI_trait_Mar_CreativeDesc = "Increased crafting XP gains.",
+    UI_trait_Mar_CreativeDescExplicit = "25% extra crafting XP gains",
+
+    UI_trait_Mar_Uncreative = "Uncreative",
+    UI_trait_Mar_UncreativeDesc = "Reduced crafting XP gains.",
+    UI_trait_Mar_UncreativeDescExplicit = "25% less crafting XP gains",
 
     -- MISC TRAITS --
 
     UI_trait_Mar_Inattentive ="Inattentive",
-    UI_trait_Mar_InattentiveDesc ="Prone to tripping on objects and to accidental injury when performing dangerous actions.<br>More prone to accidents while the mind is distracted.<br>Moving slowly reduces chances of tripping.",
+    UI_trait_Mar_InattentiveDesc ="Prone to tripping on objects and accidental injury while performing dangerous actions.<br>Chances increased while the mind is distracted.<br>Chances decreased while moving slower.",
 
     UI_trait_Mar_Depressive ="Depressive",
     UI_trait_Mar_DepressiveDesc ="Sadness increases over time and sadness increases are exponentially worse.<br>Can be negated with medication.",

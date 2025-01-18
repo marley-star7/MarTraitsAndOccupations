@@ -17,7 +17,7 @@ local function addMarTraitsTraits()
 	traitFootballPlayer:addXPBoost(Perks.Sprinting, 1)
 
 	-- KNOWLEDGE TRAITS --
-	local traitElectricalKnowledge = MarLibrary.Traits.addTrait("Mar_ElectricalKnowledge", 5)
+	local traitElectricalKnowledge = MarLibrary.Traits.addTrait("Mar_ElectricalKnowledge", 3)
 	traitElectricalKnowledge:addXPBoost(Perks.Electricity, 1)
     traitElectricalKnowledge:getFreeRecipes():add("Generator");
     traitElectricalKnowledge:getFreeRecipes():add("MakeRemoteControllerV1");
@@ -32,7 +32,7 @@ local function addMarTraitsTraits()
     traitElectricalKnowledge:getFreeRecipes():add("MakeImprovisedLantern");
 	ProfessionFactory.getProfession("electrician"):addFreeTrait(MarLibrary.Traits.addTraitCopy("Mar_ElectricalKnowledge", 0, "Mar_ElectricalKnowledge_copy"))
 
-	local traitWeldingKnowledge = MarLibrary.Traits.addTrait("Mar_WeldingKnowledge", 6)
+	local traitWeldingKnowledge = MarLibrary.Traits.addTrait("Mar_WeldingKnowledge", 4)
 	traitWeldingKnowledge:addXPBoost(Perks.MetalWelding, 1)
 	traitWeldingKnowledge:getFreeRecipes():add("Make Metal Walls")
 	traitWeldingKnowledge:getFreeRecipes():add("Make Metal Roof")
@@ -60,7 +60,7 @@ local function addMarTraitsTraits()
 	)
 	-- ALLERGY TRAITS
 	local traitSeasonalAllergies = MarLibrary.Traits.addTrait("Mar_SeasonAllergic", -1)
-	local traitDustAllergies = MarLibrary.Traits.addTrait("Mar_DustAllergic", -2)
+	local traitDustAllergies = MarLibrary.Traits.addTrait("Mar_DustAllergic", -4)
 
 	-- LIMP TRAITS --
 	local traitMinorLimp = MarLibrary.Traits.addTrait("Mar_MinorLimp", -12)
@@ -68,7 +68,8 @@ local function addMarTraitsTraits()
 	-- local traitBrokeLeg = MarLibrary.Traits.addTrait("Mar_BrokeLeg", -1) -- Disabled for not fitting into zomboids new style of traits.
 	-- XP TRAITS --
 	local traitWarMonger = MarLibrary.Traits.addTrait("Mar_WarMonger", 4)
-	local traitArtist = MarLibrary.Traits.addTrait("Mar_Artist", 2)
+	local traitCreative = MarLibrary.Traits.addTrait("Mar_Creative", 2)
+	local traitUncreative = MarLibrary.Traits.addTrait("Mar_Uncreative", -2)
 	-- BLOOD TRAITS --
 	local traitThickBlooded = MarLibrary.Traits.addTrait("Mar_ThickBlooded", 2)
 	local traitThinBlooded = MarLibrary.Traits.addTrait("Mar_ThinBlooded", -3)
@@ -87,7 +88,7 @@ local function addMarTraitsTraits()
 
 	local traitNoEmotion = MarLibrary.Traits.addTrait("Mar_NoEmotion", 16)
 	local traitDepressive = MarLibrary.Traits.addTrait("Mar_Depressive", -2)
-	--local traitAlcoholic = MarLibrary.Traits.addTrait("Mar_Alcoholic", -2)
+	local traitAlcoholic = MarLibrary.Traits.addTrait("Mar_Alcoholic", -2)
 	local traitInattentive = MarLibrary.Traits.addTrait("Mar_Inattentive", -8)
 
 	local workerTimedActionNoSpeedList = {
@@ -107,20 +108,27 @@ local function addMarTraitsTraits()
 	--===================--
 	-- MUTUAL EXCLUSIVES --
 	--===================--
+	TraitFactory.setMutualExclusive("Mar_Creative", "Mar_Uncreative")
 	TraitFactory.setMutualExclusive("Mar_ThickBlooded", "Mar_ThinBlooded")
 	TraitFactory.setMutualExclusive("Mar_StrongBack", "Mar_WeakBack")
 	TraitFactory.setMutualExclusive("Mar_Lithe", "Mar_Lumbering")
 	TraitFactory.setMutualExclusive("Mar_WarMonger", "Pacifist")
 	TraitFactory.setMutualExclusive("Mar_MinorLimp", "Mar_MajorLimp")
+	
 	if TraitFactory.getTrait("Mar_BrokeLeg") then
 		TraitFactory.setMutualExclusive("Mar_BrokeLeg", "Mar_MinorLimp")
 		TraitFactory.setMutualExclusive("Mar_BrokeLeg", "Mar_MajorLimp")
 	end
 	TraitFactory.setMutualExclusive("Mar_KeenDriver", "Mar_PoorDriver")
 	TraitFactory.setMutualExclusive("Mar_FastWorker", "Mar_SlowWorker")
-	TraitFactory.setMutualExclusive("Mar_Fearful", "Brave")
-	TraitFactory.setMutualExclusive("Mar_Fearful", "Desensitized")
-	TraitFactory.setMutualExclusive("Mar_NoEmotion", "Desensitized")
+	TraitFactory.setMutualExclusive("Brave", "Mar_Fearful")
+	TraitFactory.setMutualExclusive("Brave", "Mar_Acrophobic")
+	TraitFactory.setMutualExclusive("Brave", "Mar_Nyctophobic")
+	TraitFactory.setMutualExclusive("Brave", "Mar_NoEmotion")
+	TraitFactory.setMutualExclusive("Desensitized", "Mar_Fearful")
+	TraitFactory.setMutualExclusive("Desensitized", "Mar_Acrophobic")
+	TraitFactory.setMutualExclusive("Desensitized", "Mar_Nyctophobic")
+	TraitFactory.setMutualExclusive("Desensitized", "Mar_NoEmotion")
 	TraitFactory.setMutualExclusive("Mar_NoEmotion", "Brave")
 	TraitFactory.setMutualExclusive("Mar_NoEmotion", "Cowardly")
 	TraitFactory.setMutualExclusive("Mar_NoEmotion", "Hemophobic")

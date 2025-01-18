@@ -15,8 +15,8 @@ UI_EN = {
     UI_prof_mar_footballplayer = "Football Player",
     UI_profdesc_mar_footballplayer = "",
 
-    UI_prof_mar_federalofficer = "Federal Officer",
-    UI_profdesc_mar_federalofficer = "",
+    UI_prof_mar_federalagent = "Federal Agent",
+    UI_profdesc_mar_federalagent = "",
 
     UI_prof_mar_privateinvestigator = "Private Investigator",
     UI_profdesc_mar_privateinvestigator = "",
